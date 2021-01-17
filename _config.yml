@@ -57,7 +57,7 @@ minimal_mistakes_skin: "dark"
 
 plugins:
   - jekyll-feed
-  - jekyll-include-caches
+  - jekyll-include-cache
 
 #gems:
   - jekyll-sitemap
