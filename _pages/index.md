@@ -14,7 +14,8 @@ permalink: /
     .kousin {
         overflow:auto;
         height:256px;
-        margin: 32px;
+        margin-top: 32px;
+        margin-bottom: 32px;
         font-size: 16px;
     }
 </style>
@@ -35,15 +36,11 @@ permalink: /
         {% assign update_date = post.date | date: "%B %-d %Y" %}
         {% assign upload_date = post.upload_date | date: "%B %-d %Y" %}
         {% if update_date != upload_date %}
-    <font color="#00C000">[UPDATE]</font>
-    {{ update_date }} :   
+<font color="#00C000">[UPDATE]</font>  {{ update_date }} :
         {% else %}
-    <font color="#ff4500">[UPLOAD]</font>
-    {{ upload_date }} :   
+<font color="#ff4500">[UPLOAD]</font> {{ upload_date }} :
         {% endif %}
-    <a href="{{ site.baseurl }}{{ post.url }}">
-      {{ post.title }}
-    </a> <br>
+<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <br>
     {% endfor %}
 </div>
 

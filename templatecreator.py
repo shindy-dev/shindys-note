@@ -123,7 +123,7 @@ class TemplateCreator:
     # permalinkとファイルパスを取得
     def _get_link_and_path(self, c: str, t: str, od: str, date: datetime) -> (str, str):
         date4path = f"{date:%Y-%m-%d}"
-        lisd_dir = [f for f in os.listdir(od) if os.path.isfile(os.path.join(date, f))]
+        lisd_dir = [f for f in os.listdir(od) if os.path.isfile(os.path.join(od, f))]
         num = 0
         for i in range(2 * 100):
             if not f"{date4path}-{t}_{num}.md" in lisd_dir:
@@ -155,9 +155,17 @@ if __name__ == "__main__":
         args = get_args()
     else:
         title = input("title : ")
+        while title == "":
+            title = input("title! : ")
+
         category = input("category : ").lower()
+        if category == "":
+            category = "other"
+
         tags = [tag.strip().lower() for tag in input('tags (split ",") : ').split(",")]
+        if tags[0] == "":
+            tags = ["other"]
         args = (title, category, tags)
-    print(args)
+
     TemplateCreator(*args).create()
 
