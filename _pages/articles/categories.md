@@ -4,7 +4,7 @@ classes: wide
 author_profile: true
 
 title: Articles
-permalink: /articles/categories
+permalink: /articles/categories/
 ---
 
 ## Categories
