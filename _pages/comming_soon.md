@@ -7,4 +7,4 @@ permalink: /comming_soon/
 ---
 
 ***
-[Blog]({{ site.baseurl }}/blog/)へ戻る
+[記事一覧]({{ site.baseurl }}/articles/)へ戻る

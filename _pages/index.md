@@ -28,7 +28,7 @@ permalink: /
 {% endhighlight %}
 当サイトではプログラミングをしていて「ふ～ん」と思ったことから普段使いそうなツールの紹介まで、自由に投稿していきます！  
 ※メモ代わりでもあるため、記事によって質にムラがあります。ご了承ください。  
-[ブログ]({{ site.baseurl }}/blog/)へ
+[記事一覧]({{ site.baseurl }}/articles/)へ
 
 # 更新履歴
 <div class="kousin">

@@ -21,7 +21,7 @@
 lang: ja
 locale : "ja-JP"
 title: SHINDY'S NOTE
-baseurl: "/shindys_note" # the subpath of your site, e.g. /blog
+baseurl: "/shindys_note" # the subpath of your site, e.g. /articles
 url: "https://shindy-dev.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 author:
@@ -46,7 +46,7 @@ author:
 # page settings
 # header_pages:
 #  - about.md
-#  - blog/index.md
+#  - articles/index.md
 
 # Build settings
 # theme: minima
