@@ -1,7 +1,6 @@
-import sys, os
 import datetime
-import subprocess
-import urllib.parse
+import os
+import sys
 
 # __pycache__を生成させない
 sys.dont_write_bytecode = True
@@ -94,7 +93,10 @@ class TemplateCreator:
         tag4path: str = self._get_norm_str(tags[0])
         cate4path: str = self._get_norm_str(category)
         out_dir: str = os.path.join(
-            PJTPATH, "_posts", cate4path, tag4path,
+            PJTPATH,
+            "_posts",
+            cate4path,
+            tag4path,
         )
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
@@ -102,7 +104,11 @@ class TemplateCreator:
         date: datetime = self._get_now()
         link, self.path = self._get_link_and_path(cate4path, tag4path, out_dir, date)
         self.content = POST_TEMP.format(
-            title, f"{date:%Y-%m-%d %H:%M:%S %z}", category, str(tags), link,
+            title,
+            f"{date:%Y-%m-%d %H:%M:%S %z}",
+            category,
+            str(tags),
+            link,
         )
 
     # テンプレート出力
@@ -117,18 +123,28 @@ class TemplateCreator:
             *datetime.datetime.today().timetuple()[:6]
         )
         utc_date: datetime = datetime.datetime(*now_date.utcnow().timetuple()[:6])
-        tz: timezone = datetime.timezone(now_date - utc_date)
+        tz: datetime.timezone = datetime.timezone(now_date - utc_date)
         return now_date.astimezone(tz)
 
     # permalinkとファイルパスを取得
-    def _get_link_and_path(self, c: str, t: str, od: str, date: datetime) -> (str, str):
+    def _get_link_and_path(
+        self, c: str, t: str, od: str, date: datetime
+    ) -> tuple[str, str]:
         date4path = f"{date:%Y-%m-%d}"
         lisd_dir = [f for f in os.listdir(od) if os.path.isfile(os.path.join(od, f))]
         num = 0
         for i in range(2 * 100):
-            if not f"{date4path}-{t}_{num}.md" in lisd_dir:
+            if f"{date4path}-{t}_{num}.md" not in lisd_dir:
                 return (
-                    "/".join(["/articles", c, t, f"{date:%Y/%m/%d}", f"{t}_{num}",]),
+                    "/".join(
+                        [
+                            "/articles",
+                            c,
+                            t,
+                            f"{date:%Y/%m/%d}",
+                            f"{t}_{num}",
+                        ]
+                    ),
                     os.path.join(od, f"{date4path}-{t}_{num}.md"),
                 )
             else:
@@ -168,4 +184,3 @@ if __name__ == "__main__":
         args = (title, category, tags)
 
     TemplateCreator(*args).create()
-
