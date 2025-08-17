@@ -101,7 +101,7 @@ class TemplateCreator:
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        date: datetime = self._get_now()
+        date: datetime.datetime = self._get_now()
         link, self.path = self._get_link_and_path(cate4path, tag4path, out_dir, date)
         self.content = POST_TEMP.format(
             title,
@@ -117,19 +117,19 @@ class TemplateCreator:
             f.write(self.content.encode("utf-8"))
 
     # jekyllに準拠したフォーマットの日付を取得(yyyy-mm-dd HH-MM-SS +/-hhmm)
-    def _get_now(self) -> datetime:
+    def _get_now(self) -> datetime.datetime:
         # 0: year, 1: month, 2: day, 3: hour, 4: minutes, 5: seconds
-        now_date: datetime = datetime.datetime(
+        now_date: datetime.datetime = datetime.datetime(
             *datetime.datetime.today().timetuple()[:6]
         )
-        utc_date: datetime = datetime.datetime(*now_date.utcnow().timetuple()[:6])
+        utc_date: datetime.datetime = datetime.datetime(
+            *now_date.utcnow().timetuple()[:6]
+        )
         tz: datetime.timezone = datetime.timezone(now_date - utc_date)
         return now_date.astimezone(tz)
 
     # permalinkとファイルパスを取得
-    def _get_link_and_path(
-        self, c: str, t: str, od: str, date: datetime
-    ) -> tuple[str, str]:
+    def _get_link_and_path(self, c: str, t: str, od: str, date: datetime.datetime):
         date4path = f"{date:%Y-%m-%d}"
         lisd_dir = [f for f in os.listdir(od) if os.path.isfile(os.path.join(od, f))]
         num = 0
@@ -149,6 +149,7 @@ class TemplateCreator:
                 )
             else:
                 num += 1
+        raise RuntimeError("Could not generate a unique link and path for the post.")
 
     # 文字列の正規化(使用できない文字は16進数文字に置き換える)
     def _get_norm_str(self, s: str):
