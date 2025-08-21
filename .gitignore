@@ -1,9 +1,24 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+# Hugo build output
+/public/
+/resources/_gen/
+/hugo_stats.json
+/.hugo_build.lock
 
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
 
-.vscode
-venv
+# VSCode settings
+.vscode/
+.history/
+
+# Node stuff (もしnpmでテーマ管理する場合は必要)
+node_modules/
+
+# Env files
+.env
+.env.* 
+
+# Backup files
+*~
