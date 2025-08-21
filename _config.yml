@@ -21,8 +21,8 @@
 lang: ja
 locale : "ja-JP"
 title: SHINDY'S NOTE
-baseurl: "/shindys_note" # the subpath of your site, e.g. /articles
-url: "https://shindy-dev.github.io/shindys_note" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/shindys-note" # the subpath of your site, e.g. /articles
+url: "https://shindy-dev.github.io/shindys-note" # the base hostname & protocol for your site, e.g. http://example.com
 
 author:
   name: "Shindy"
