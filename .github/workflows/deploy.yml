@@ -3,7 +3,7 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - hugo  # mainの場合はここを書き換える
+      - master  # mainの場合はここを書き換える
 
 jobs:
   build-deploy:
