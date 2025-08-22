@@ -9,7 +9,8 @@ B --&amp;gt; C(Obsidianの拡張機能でLLMを実行)
 &lt;p>M3 Macbook&lt;/p>
 &lt;h2 id="hugging-faceでllmをフォーク">Hugging FaceでLLMをフォーク&lt;/h2>
 &lt;p>自分の使いたいLLMがいつ配信停止となっても困らないように、自分のリポジトリにフォークする。&lt;br>
-※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。
+※ライセンスには注意し、自己責任で行うこと
+※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。&lt;br>
 ※いつ配信停止となっても別のモデルを探せるのであれば&lt;a href="#Ollama%E3%81%A7LLM%E3%82%92pull&amp;amp;%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%AE%9F%E8%A1%8C">ObsidianでローカルLMMを使う&lt;/a>から実施すること。&lt;/p>
 &lt;h3 id="hugging-face-アカウント-の作成">Hugging Face アカウント の作成&lt;/h3>
 &lt;p>Hugging Faceのアカウントはメールアドレスがあれば作れる。有料プランを使用する場合は乗っ取り防止で2FAの設定をしておいた方がいい。&lt;br>
