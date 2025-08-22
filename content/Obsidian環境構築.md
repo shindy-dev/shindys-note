@@ -1,6 +1,6 @@
 ---
 created: 2025-07-21
-updated: 2025-07-21T22:31:48
+date: 2025-07-21T22:31:48
 author: shindy
 tags:
   - Obsidian
