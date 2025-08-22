@@ -1,0 +1,181 @@
+<!doctype html><html lang=ja-JP><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>My New Hugo Site</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="HugoとGitHubでObsidianで書いたメモを公開してみた
+ObsidianのVault内ドキュメントの一部をHugoという静的サイトジェネレータを用いてGitHub Pagesで公開してみました。
+使用するもの
+
+MacBook Air M3
+VS Code &mldr; Hugo環境デバッグ
+Obsidian &mldr; ドキュメントの更新
+Homebrew &mldr; パッケージマネージャ（Hugoインストール用）
+Git &mldr; ファイルバージョン管理（brew install gitでインストール可能）
+GitHubアカウント &mldr; GitHubのサービスをフル活用するので必要
+（任意）Gitクライアント &mldr; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの
+
+ObsidianのVault構成と命題
+ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。
+├── .git/                  # git
+├── .obsidian/         # Obsidianの設定
+├── diary/               # 日記
+├── docs/               # 技術系のドキュメント
+├── assets/             # 画像や資料アセット（docs用）
+├── LICENSE           # リポジトリのライセンスファイル
+└── README.md     # リポジトリのREADMEファイル
+今回の方針
+Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。
+
+Publicリポジトリshindys-noteを作成する
+└ Hugo環境をデフォルトブランチに構築する
+GitHub Pages公開用ブランチgh-pagesを構築する
+Vault内対象フォルダの内容をmasterへ同期する
+gh-pagesブランチをGitHub Pagesで公開する
+
+1. Publicリポジトリshindys-noteを作成する
+Hugoインストール
+macOS"><meta name=generator content="Hugo 0.148.2"><meta name=robots content="index, follow"><meta name=author content="shindy"><link rel=stylesheet href=/shindys-note/ananke/css/main.min.8d048772ae72ab11245a0e296d1f2a36d3e3dd376c6c867394d6cc659c68fc37.css><link rel=canonical href=https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/><meta property="og:url" content="https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/"><meta property="og:site_name" content="My New Hugo Site"><meta property="og:title" content="My New Hugo Site"><meta property="og:description" content="HugoとGitHubでObsidianで書いたメモを公開してみた ObsidianのVault内ドキュメントの一部をHugoという静的サイトジェネレータを用いてGitHub Pagesで公開してみました。
+使用するもの MacBook Air M3 VS Code … Hugo環境デバッグ Obsidian … ドキュメントの更新 Homebrew … パッケージマネージャ（Hugoインストール用） Git … ファイルバージョン管理（brew install gitでインストール可能） GitHubアカウント … GitHubのサービスをフル活用するので必要 （任意）Gitクライアント … GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの ObsidianのVault構成と命題 ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。
+├── .git/ # git ├── .obsidian/ # Obsidianの設定 ├── diary/ # 日記 ├── docs/ # 技術系のドキュメント ├── assets/ # 画像や資料アセット（docs用） ├── LICENSE # リポジトリのライセンスファイル └── README.md # リポジトリのREADMEファイル 今回の方針 Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。
+Publicリポジトリshindys-noteを作成する └ Hugo環境をデフォルトブランチに構築する GitHub Pages公開用ブランチgh-pagesを構築する Vault内対象フォルダの内容をmasterへ同期する gh-pagesブランチをGitHub Pagesで公開する 1. Publicリポジトリshindys-noteを作成する Hugoインストール macOS"><meta property="og:locale" content="ja_JP"><meta property="og:type" content="article"><meta property="article:tag" content="Hugo"><meta property="article:tag" content="GitHub"><meta property="article:tag" content="GitHub-Actions"><meta property="article:tag" content="GitHub-Pages"><meta itemprop=name content="My New Hugo Site"><meta itemprop=description content="HugoとGitHubでObsidianで書いたメモを公開してみた ObsidianのVault内ドキュメントの一部をHugoという静的サイトジェネレータを用いてGitHub Pagesで公開してみました。
+使用するもの MacBook Air M3 VS Code … Hugo環境デバッグ Obsidian … ドキュメントの更新 Homebrew … パッケージマネージャ（Hugoインストール用） Git … ファイルバージョン管理（brew install gitでインストール可能） GitHubアカウント … GitHubのサービスをフル活用するので必要 （任意）Gitクライアント … GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの ObsidianのVault構成と命題 ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。
+├── .git/ # git ├── .obsidian/ # Obsidianの設定 ├── diary/ # 日記 ├── docs/ # 技術系のドキュメント ├── assets/ # 画像や資料アセット（docs用） ├── LICENSE # リポジトリのライセンスファイル └── README.md # リポジトリのREADMEファイル 今回の方針 Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。
+Publicリポジトリshindys-noteを作成する └ Hugo環境をデフォルトブランチに構築する GitHub Pages公開用ブランチgh-pagesを構築する Vault内対象フォルダの内容をmasterへ同期する gh-pagesブランチをGitHub Pagesで公開する 1. Publicリポジトリshindys-noteを作成する Hugoインストール macOS"><meta itemprop=wordCount content="476"><meta itemprop=keywords content="Hugo,GitHub,GitHub-Actions,GitHub-Pages"><meta name=twitter:card content="summary"><meta name=twitter:title content="My New Hugo Site"><meta name=twitter:description content="HugoとGitHubでObsidianで書いたメモを公開してみた ObsidianのVault内ドキュメントの一部をHugoという静的サイトジェネレータを用いてGitHub Pagesで公開してみました。
+使用するもの MacBook Air M3 VS Code … Hugo環境デバッグ Obsidian … ドキュメントの更新 Homebrew … パッケージマネージャ（Hugoインストール用） Git … ファイルバージョン管理（brew install gitでインストール可能） GitHubアカウント … GitHubのサービスをフル活用するので必要 （任意）Gitクライアント … GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの ObsidianのVault構成と命題 ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。
+├── .git/ # git ├── .obsidian/ # Obsidianの設定 ├── diary/ # 日記 ├── docs/ # 技術系のドキュメント ├── assets/ # 画像や資料アセット（docs用） ├── LICENSE # リポジトリのライセンスファイル └── README.md # リポジトリのREADMEファイル 今回の方針 Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。
+Publicリポジトリshindys-noteを作成する └ Hugo環境をデフォルトブランチに構築する GitHub Pages公開用ブランチgh-pagesを構築する Vault内対象フォルダの内容をmasterへ同期する gh-pagesブランチをGitHub Pagesで公開する 1. Publicリポジトリshindys-noteを作成する Hugoインストール macOS"></head><body class="ma0 avenir bg-near-white production"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/shindys-note/ class="f3 fw2 hover-white white-90 dib no-underline">My New Hugo Site</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l mw8 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">My New Hugo Site</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1"></h1><p class=tracked><strong>shindy</strong></p></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id=hugoとgithubでobsidianで書いたメモを公開してみた>HugoとGitHubでObsidianで書いたメモを公開してみた</h1><p>ObsidianのVault内ドキュメントの一部を<a href=https://gohugo.io/>Hugo</a>という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。</p><h2 id=使用するもの>使用するもの</h2><ul><li>MacBook Air M3</li><li>VS Code &mldr; Hugo環境デバッグ</li><li>Obsidian &mldr; ドキュメントの更新</li><li><a href=https://brew.sh/ja/>Homebrew</a> &mldr; パッケージマネージャ（Hugoインストール用）</li><li>Git &mldr; ファイルバージョン管理（<code>brew install git</code>でインストール可能）</li><li>GitHubアカウント &mldr; GitHubのサービスをフル活用するので必要</li><li>（任意）Gitクライアント &mldr; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの</li></ul><h2 id=obsidianのvault構成と命題>ObsidianのVault構成と命題</h2><p>ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>├── .git/                  # git
+</span></span><span style=display:flex><span>├── .obsidian/         # Obsidianの設定
+</span></span><span style=display:flex><span>├── diary/               # 日記
+</span></span><span style=display:flex><span>├── docs/               # 技術系のドキュメント
+</span></span><span style=display:flex><span>├── assets/             # 画像や資料アセット（docs用）
+</span></span><span style=display:flex><span>├── LICENSE           # リポジトリのライセンスファイル
+</span></span><span style=display:flex><span>└── README.md     # リポジトリのREADMEファイル
+</span></span></code></pre></div><h2 id=今回の方針>今回の方針</h2><p>Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。</p><ol><li>Publicリポジトリ<code>shindys-note</code>を作成する
+└ Hugo環境をデフォルトブランチに構築する</li><li>GitHub Pages公開用ブランチ<code>gh-pages</code>を構築する</li><li>Vault内対象フォルダの内容を<code>master</code>へ同期する</li><li><code>gh-pages</code>ブランチをGitHub Pagesで公開する</li></ol><h2 id=1-publicリポジトリshindys-noteを作成する>1. Publicリポジトリ<code>shindys-note</code>を作成する</h2><h3 id=hugoインストール>Hugoインストール</h3><p><a href=https://gohugo.io/installation/macos/>macOS</a></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>brew install hugo
+</span></span></code></pre></div><h3 id=hugo-siteの作成--空ディレクトリ内にgitkeepを作成>Hugo siteの作成 & 空ディレクトリ内に.gitkeepを作成</h3><p>任意のディレクトリに移動してから以下コマンドを実行してください。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Hugo siteの作成</span>
+</span></span><span style=display:flex><span>hugo new site shindys-note
+</span></span><span style=display:flex><span>cd shindys-note
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 空ディレクトリ内に.gitkeep（中身のないファイル）を作成（空のディレクトリはGitの追跡対象外となるため）</span>
+</span></span><span style=display:flex><span>find . -type d -empty -exec touch <span style=color:#f92672>{}</span>/.gitkeep <span style=color:#ae81ff>\;</span>
+</span></span></code></pre></div><h3 id=gitの初期化>Gitの初期化</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># デフォルトブランチである`master`や`main`が作成される</span>
+</span></span><span style=display:flex><span>git init
+</span></span></code></pre></div><h3 id=任意gitignoreのおすすめ設定>（任意）.gitignoreのおすすめ設定</h3><p>.gitignoreファイルは格納しておくと中に記述したパスをGitが自動で追跡対象外してくれます。</p><pre tabindex=0><code class=language-.gitignore data-lang=.gitignore># Hugo build output
+/public/
+/resources/_gen/
+/hugo_stats.json
+/.hugo_build.lock
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+.history/
+
+# Node stuff (もしnpmでテーマ管理する場合は必要)
+node_modules/
+
+# Env files
+.env
+.env.* 
+
+# Backup files
+*~
+</code></pre><h3 id=サイトの基本情報やテーマ変更やローカルでのテスト方法>サイトの基本情報やテーマ変更やローカルでのテスト方法</h3><p>GitHubへpushする前にちゃんと自分の好きなテーマで記事がちゃんと表示されるかテストしましょう。</p><h4 id=基本情報urlや言語タイトル等>基本情報（URLや言語、タイトル等）</h4><p>hugo.toml内で設定できます。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#75715e># github pagesのURLは基本は以下の形式です</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># https://&lt;githubユーザ名&gt;.github.io/リポジトリ名/</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>baseURL</span> = <span style=color:#e6db74>&#39;https://shindy-dev.github.io/shindys-note/&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>languageCode</span> = <span style=color:#e6db74>&#39;ja-JP&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>title</span> = <span style=color:#e6db74>&#39;My New Hugo Site&#39;</span>
+</span></span></code></pre></div><h4 id=テーマ変更>テーマ変更</h4><p>テーマは<a href=https://themes.gohugo.io/>Hugo Themes</a>に一覧があります。今回は<code>ananke</code>に変更する例</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定ファイルのthemeを設定できればOK</span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;theme = &#34;ananke&#34;&#39;</span> &gt;&gt; hugo.toml
+</span></span></code></pre></div><h4 id=post追加>post追加</h4><p>以下のコマンドで<code>/archetypes/default.md</code>をテンプレートとして<code>/content/posts/hello.md</code>を作成します。あくまでテスト用なので、自分であらかじめ作成したドキュメントを<code>/content/posts</code>へ格納してテストしていただいても構いません。テスト用のドキュメントをコミット時に対象とするかは自己判断でお願いします。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo new posts/hello.md
+</span></span></code></pre></div><h4 id=ローカルサーバー起動>ローカルサーバー起動</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo server -D
+</span></span></code></pre></div><ul><li><code>-D</code> は下書き（draft = trueの記事）も表示するオプションです。</li><li>起動後ブラウザで確認 → デフォルトURL：<a href=http://localhost:1313>http://localhost:1313</a></li><li>保存するたびに自動でリロードしてくれます。</li></ul><p>好みのテーマで作成した記事が表示されたら確認は終わりです。今回は細かなレイアウトの修正は割愛します。
+<img src=../assets/Pasted%20image%2020250821215604.png alt></p><h3 id=shindys-noteをgithub-へ-publicリポジトリとして公開><code>shindys-note</code>をGitHub へ Publicリポジトリとして公開</h3><p>GitHubのリモートリポジトリの作成方法は多種多様なので、ご自身に合うやり方で公開してください。</p><ul><li>Gitクライアント（GitHub Desktop等）</li><li>GitHub CLI</li><li>GitHub</li></ul><p>.gitignoreの内容にもよりますが、GitHubへは以下の構成がpushされるはずです。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>├── .git
+</span></span><span style=display:flex><span>├── archetypes
+</span></span><span style=display:flex><span>├── data
+</span></span><span style=display:flex><span>├── i18n
+</span></span><span style=display:flex><span>├── layouts
+</span></span><span style=display:flex><span>├── static
+</span></span><span style=display:flex><span>├── themes
+</span></span><span style=display:flex><span>├── .gitignore
+</span></span><span style=display:flex><span>├── .gitmodules
+</span></span><span style=display:flex><span>├── hugo.toml
+</span></span><span style=display:flex><span>├── LICENSE
+</span></span><span style=display:flex><span>└── README.md
+</span></span></code></pre></div><h3 id=2-github-pages公開環境をgh-pagesブランチに構築する>2. GitHub Pages公開環境を<code>gh-pages</code>ブランチに構築する</h3><p>ここでは、GitHub Actionsを使用して<code>shindys-note</code>のデフォルトブランチに更新があった際に、自動でHugoによるビルドを行い成果物をgh-pagesへ反映する仕組みを構築します。手順としては以下の内容を記述した<code>.github/workflows/deploy.yml</code>を<code>shindys-note</code>のデフォルトブランチで作成し、pushするだけです。以下テキストのコメント部分は適宜修正してください。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>Deploy Hugo site to GitHub Pages</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>on</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>push</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>branches</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>master </span> <span style=color:#75715e># mainの場合はここを書き換える</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>jobs</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>build-deploy</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-latest</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Checkout code</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v3</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>submodules</span>: <span style=color:#66d9ef>true</span> <span style=color:#75715e># テーマをサブモジュールにしてる場合</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v3</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;0.148.2&#39;</span>  <span style=color:#75715e># 好きなHugoバージョンに変更可</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>extended</span>: <span style=color:#66d9ef>true</span>           <span style=color:#75715e># SCSS/SASSをビルドするテーマの場合はtrueにしないとエラーになる</span>
+</span></span><span style=display:flex><span>          
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build Hugo site</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>hugo --minify</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Deploy to GitHub Pages</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-gh-pages@v4</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>github_token</span>: <span style=color:#ae81ff>${{ secrets.GITHUB_TOKEN }}</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>publish_dir</span>: <span style=color:#ae81ff>./public</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>publish_branch</span>: <span style=color:#ae81ff>gh-pages</span>
+</span></span></code></pre></div><p>GitHubリポジトリのActionsタブを見ると成否が伺えます。
+<img src=../assets/Pasted%20image%2020250822001228.png alt></p><p>ここまでで、<code>shindys-note</code>の環境は整いました。あとはObsidianのVault内の更新があれば<code>shindys-note</code>へ同期を行う仕組みを構築すれば、GitHub Pagesへの公開設定を実施して完了です。</p><h3 id=3-vault内対象フォルダの内容をmasterへ同期する>3. Vault内対象フォルダの内容を<code>master</code>へ同期する</h3><p>プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメントに関する資材に変更があった場合に、Vault内対象フォルダの「docs」や「assets」で<code>shindys-note</code>の<code>master</code>ブランチの「content」や「assets」を置換する仕組みを構築します。</p><h4 id=31-personal-access-token-patの作成>3.1 Personal Access Token (PAT)の作成</h4><p>リポジトリ間の操作になりますので、以下の手順でリポジトリ操作権限を持ったPATを作成します。</p><ul><li>GitHub から <code>Settings > Developer settings > Personal access tokens > Tokens (classic)</code></li><li>scope: <code>repo</code> にチェックを入れる</li><li>トークンをコピーする</li></ul><h4 id=32-patをvaultリポジトリに設定>3.2 PATをVaultリポジトリに設定</h4><ul><li>Vaultリポジトリ → <code>Settings > Secrets and variables > Actions > New repository secret</code></li><li>名前：<code>NOTE_REPO_TOKEN</code></li><li>値：上でコピーしたPAT</li></ul><h4 id=33-vaultリポジトリ内にgithub-actions用のスクリプトを作成>3.3 Vaultリポジトリ内にGitHub Actions用のスクリプトを作成</h4><p>以下の内容を記述した<code>.github/workflows/sync-to-note.yml</code>を作成し、pushしてください。
+pushすると、Actionsが動作し、<code>shindys-note</code>へ同期が行われます。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>Sync Vault to shindys-note</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>on</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>push</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>branches</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>master  </span> <span style=color:#75715e># Vaultのメインブランチに合わせる</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>paths</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;docs/**&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;assets/**&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>jobs</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>sync</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-latest</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Checkout Vault repo</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Checkout shindys-note repo</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v3</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>repository</span>: <span style=color:#ae81ff>shindy-dev/shindys-note</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>path</span>: <span style=color:#ae81ff>shindys-note</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>token</span>: <span style=color:#ae81ff>${{ secrets.NOTE_REPO_TOKEN }}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Sync folders</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: |<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          rsync -av --delete docs/ shindys-note/content/
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          rsync -av --delete assets/ shindys-note/static/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Commit and push changes</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: |<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          cd shindys-note
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          git config user.name &#34;github-actions[bot]&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          git config user.email &#34;41898282+github-actions[bot]@users.noreply.github.com&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          git add .
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          git commit -m &#34;Sync from Vault: $(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&#34; || echo &#34;No changes to commit&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          git push origin master   # Vaultのメインブランチに合わせる</span>
+</span></span></code></pre></div><h3 id=4-gh-pagesブランチをgithub-pagesで公開する>4. <code>gh-pages</code>ブランチをGitHub Pagesで公開する</h3><p>最後に構築した公開用環境をGitHub Pagesに公開する設定を行います。</p><ol><li>GitHubリポジトリのSettingsタブのPagesを選択
+<img src=../assets/Pasted%20image%2020250822010141.png alt></li><li>Build and deploymentのSourceに「Deploy from a branch」を選択</li><li>Branchには<code>gh-pages</code>、<code>/(root)</code>を設定
+<img src=../assets/Pasted%20image%2020250822010523.png alt></li></ol><p>ローカル実行したときと同じ内容が表示されれば、公開完了です🎵</p><ul class=pa0><li class="list di"><a href=/shindys-note/tags/hugo/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Hugo</a></li><li class="list di"><a href=/shindys-note/tags/github/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">GitHub</a></li><li class="list di"><a href=/shindys-note/tags/github-actions/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">GitHub-Actions</a></li><li class="list di"><a href=/shindys-note/tags/github-pages/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">GitHub-Pages</a></li></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links"><p class="f5 b mb3">Related</p><ul class="pa0 list"><li class=mb2><a href=/shindys-note/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/></a></li></ul></div></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://shindy-dev.github.io/shindys-note/>&copy; My New Hugo Site 2025</a><div><div class=ananke-socials></div></div></div></footer></body></html>

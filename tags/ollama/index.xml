@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ollama on My New Hugo Site</title><link>https://shindy-dev.github.io/shindys-note/tags/ollama/</link><description>Recent content in Ollama on My New Hugo Site</description><generator>Hugo</generator><language>ja-JP</language><atom:link href="https://shindy-dev.github.io/shindys-note/tags/ollama/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h1 id="obsidianでローカルllmを使う">ObsidianでローカルLLMを使う&lt;/h1>
+&lt;p>Obsidianの拡張機能と&lt;a href="https://huggingface.co/">Hugging Face&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、&lt;a href="https://ollama.com/">Ollama&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>を使用してオフライン環境下での生産性の爆上げを図る。&lt;br>
+※自己責任で実施すること。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
+A(Hugging FaceでLLMをフォーク) --&amp;gt; B(OllamaでLLMをpull&amp;amp;ローカル実行)
+B --&amp;gt; C(Obsidianの拡張機能でLLMを実行)
+&lt;/code>&lt;/pre>&lt;p>ちなみに表題に反して、おすすめはGemini APIです。&lt;/p>
+&lt;h2 id="実装環境">実装環境&lt;/h2>
+&lt;p>M3 Macbook&lt;/p>
+&lt;h2 id="hugging-faceでllmをフォーク">Hugging FaceでLLMをフォーク&lt;/h2>
+&lt;p>自分の使いたいLLMがいつ配信停止となっても困らないように、自分のリポジトリにフォークする。&lt;br>
+※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。
+※いつ配信停止となっても別のモデルを探せるのであれば&lt;a href="#Ollama%E3%81%A7LLM%E3%82%92pull&amp;amp;%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%AE%9F%E8%A1%8C">ObsidianでローカルLMMを使う&lt;/a>から実施すること。&lt;/p>
+&lt;h3 id="hugging-face-アカウント-の作成">Hugging Face アカウント の作成&lt;/h3>
+&lt;p>Hugging Faceのアカウントはメールアドレスがあれば作れる。有料プランを使用する場合は乗っ取り防止で2FAの設定をしておいた方がいい。&lt;br>
+&lt;a href="https://huggingface.co/">Hugging Face – The AI community building the future.&lt;/a>&lt;/p>
+&lt;h3 id="hugging-face-cli-のインストール">Hugging Face CLI のインストール&lt;/h3>
+&lt;p>Hugging FaceのGUIだと日本語対応しておらず、UIも変更される可能性もあるため、再現性を確保するためCLIをインストールする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install huggingface-cli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="access-tokens-の作成">Access Tokens の作成&lt;/h3>
+&lt;p>Settingsの[Access Tokens](&lt;a href="https://huggingface.co/settings/tokens">Hugging Face – The AI community building the future.&lt;/a>)から作成する。Repositories内の項目をチェックする。トークンは発行時にしか表示されないため、メモしておくこと。
+&lt;img src="../assets/Pasted%20image%2020250816215531.png" alt="600">&lt;/p>
+&lt;h3 id="hugging-face-cli-でログイン">Hugging Face CLI でログイン&lt;/h3>
+&lt;p>先ほど発行したトークンでログインする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hf auth login --token &amp;lt;トークン&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="git-の大容量ファイル対応">Git の大容量ファイル対応&lt;/h3>
+&lt;p>gitが大規模言語モデル等の大容量ファイルを操作できるように&lt;code>git-lfs&lt;/code>をインストールする。&lt;/p></description></item></channel></rss>
