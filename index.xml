@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/</link><description>Recent content on Shindy's Note</description><generator>Hugo</generator><language>ja-JP</language><atom:link href="https://shindy-dev.github.io/shindys-note/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/db2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/db2/</guid><description>&lt;h1 id="db2">Db2&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/</link><description>Recent content on Shindy's Note</description><generator>Hugo</generator><language>ja-JP</language><lastBuildDate>Wed, 20 Aug 2025 22:53:23 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link><pubDate>Wed, 20 Aug 2025 22:53:23 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid><description>&lt;h1 id="hugoとgithubでobsidianで書いたメモを公開してみた">HugoとGitHubでObsidianで書いたメモを公開してみた&lt;/h1>
+&lt;p>ObsidianのVault内ドキュメントの一部を&lt;a href="https://gohugo.io/">Hugo&lt;/a>という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。&lt;/p>
+&lt;h2 id="使用するもの">使用するもの&lt;/h2>
+&lt;ul>
+&lt;li>MacBook Air M3&lt;/li>
+&lt;li>VS Code &amp;hellip; Hugo環境デバッグ&lt;/li>
+&lt;li>Obsidian &amp;hellip; ドキュメントの更新&lt;/li>
+&lt;li>&lt;a href="https://brew.sh/ja/">Homebrew&lt;/a> &amp;hellip; パッケージマネージャ（Hugoインストール用）&lt;/li>
+&lt;li>Git &amp;hellip; ファイルバージョン管理（&lt;code>brew install git&lt;/code>でインストール可能）&lt;/li>
+&lt;li>GitHubアカウント &amp;hellip; GitHubのサービスをフル活用するので必要&lt;/li>
+&lt;li>（任意）Gitクライアント &amp;hellip; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの&lt;/li>
+&lt;/ul>
+&lt;h2 id="obsidianのvault構成と命題">ObsidianのVault構成と命題&lt;/h2>
+&lt;p>ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>├── .git/ # git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── .obsidian/ # Obsidianの設定
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── diary/ # 日記
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── docs/ # 技術系のドキュメント
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── assets/ # 画像や資料アセット（docs用）
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── LICENSE # リポジトリのライセンスファイル
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── README.md # リポジトリのREADMEファイル
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="今回の方針">今回の方針&lt;/h2>
+&lt;p>Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。&lt;/p>
+&lt;ol>
+&lt;li>Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する
+└ Hugo環境をデフォルトブランチに構築する&lt;/li>
+&lt;li>GitHub Pages公開用ブランチ&lt;code>gh-pages&lt;/code>を構築する&lt;/li>
+&lt;li>Vault内対象フォルダの内容を&lt;code>master&lt;/code>へ同期する&lt;/li>
+&lt;li>&lt;code>gh-pages&lt;/code>ブランチをGitHub Pagesで公開する&lt;/li>
+&lt;/ol>
+&lt;h2 id="1-publicリポジトリshindys-noteを作成する">1. Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する&lt;/h2>
+&lt;h3 id="hugoインストール">Hugoインストール&lt;/h3>
+&lt;p>&lt;a href="https://gohugo.io/installation/macos/">macOS&lt;/a>&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/db2/</link><pubDate>Fri, 15 Aug 2025 23:19:55 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/db2/</guid><description>&lt;h1 id="db2">Db2&lt;/h1>
 &lt;h2 id="よく使うコマンド">よく使うコマンド&lt;/h2>
 &lt;h3 id="ライセンス確認">ライセンス確認&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>db2licm -l
@@ -42,39 +74,33 @@
 &lt;h3 id="注意">注意&lt;/h3>
 &lt;ol>
 &lt;li>11.5.4の場合のみ移行後runstatsで不具合がでるためdb2catを実行する必要がある&lt;/li>
-&lt;/ol></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid><description>&lt;h1 id="hugoとgithubでobsidianで書いたメモを公開してみた">HugoとGitHubでObsidianで書いたメモを公開してみた&lt;/h1>
-&lt;p>ObsidianのVault内ドキュメントの一部を&lt;a href="https://gohugo.io/">Hugo&lt;/a>という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。&lt;/p>
-&lt;h2 id="使用するもの">使用するもの&lt;/h2>
-&lt;ul>
-&lt;li>MacBook Air M3&lt;/li>
-&lt;li>VS Code &amp;hellip; Hugo環境デバッグ&lt;/li>
-&lt;li>Obsidian &amp;hellip; ドキュメントの更新&lt;/li>
-&lt;li>&lt;a href="https://brew.sh/ja/">Homebrew&lt;/a> &amp;hellip; パッケージマネージャ（Hugoインストール用）&lt;/li>
-&lt;li>Git &amp;hellip; ファイルバージョン管理（&lt;code>brew install git&lt;/code>でインストール可能）&lt;/li>
-&lt;li>GitHubアカウント &amp;hellip; GitHubのサービスをフル活用するので必要&lt;/li>
-&lt;li>（任意）Gitクライアント &amp;hellip; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの&lt;/li>
-&lt;/ul>
-&lt;h2 id="obsidianのvault構成と命題">ObsidianのVault構成と命題&lt;/h2>
-&lt;p>ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>├── .git/ # git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── .obsidian/ # Obsidianの設定
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── diary/ # 日記
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── docs/ # 技術系のドキュメント
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── assets/ # 画像や資料アセット（docs用）
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── LICENSE # リポジトリのライセンスファイル
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── README.md # リポジトリのREADMEファイル
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="今回の方針">今回の方針&lt;/h2>
-&lt;p>Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。&lt;/p>
-&lt;ol>
-&lt;li>Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する
-└ Hugo環境をデフォルトブランチに構築する&lt;/li>
-&lt;li>GitHub Pages公開用ブランチ&lt;code>gh-pages&lt;/code>を構築する&lt;/li>
-&lt;li>Vault内対象フォルダの内容を&lt;code>master&lt;/code>へ同期する&lt;/li>
-&lt;li>&lt;code>gh-pages&lt;/code>ブランチをGitHub Pagesで公開する&lt;/li>
-&lt;/ol>
-&lt;h2 id="1-publicリポジトリshindys-noteを作成する">1. Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する&lt;/h2>
-&lt;h3 id="hugoインストール">Hugoインストール&lt;/h3>
-&lt;p>&lt;a href="https://gohugo.io/installation/macos/">macOS&lt;/a>&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</guid><description>&lt;h1 id="markdown記法">Markdown記法&lt;/h1>
+&lt;/ol></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h1 id="obsidianでローカルllmを使う">ObsidianでローカルLLMを使う&lt;/h1>
+&lt;p>Obsidianの拡張機能と&lt;a href="https://huggingface.co/">Hugging Face&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、&lt;a href="https://ollama.com/">Ollama&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>を使用してオフライン環境下での生産性の爆上げを図る。&lt;br>
+※自己責任で実施すること。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
+A(Hugging FaceでLLMをフォーク) --&amp;gt; B(OllamaでLLMをpull&amp;amp;ローカル実行)
+B --&amp;gt; C(Obsidianの拡張機能でLLMを実行)
+&lt;/code>&lt;/pre>&lt;p>ちなみに表題に反して、おすすめはGemini APIです。&lt;/p>
+&lt;h2 id="実装環境">実装環境&lt;/h2>
+&lt;p>M3 Macbook&lt;/p>
+&lt;h2 id="hugging-faceでllmをフォーク">Hugging FaceでLLMをフォーク&lt;/h2>
+&lt;p>自分の使いたいLLMがいつ配信停止となっても困らないように、自分のリポジトリにフォークする。&lt;br>
+※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。
+※いつ配信停止となっても別のモデルを探せるのであれば&lt;a href="#Ollama%E3%81%A7LLM%E3%82%92pull&amp;amp;%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%AE%9F%E8%A1%8C">ObsidianでローカルLMMを使う&lt;/a>から実施すること。&lt;/p>
+&lt;h3 id="hugging-face-アカウント-の作成">Hugging Face アカウント の作成&lt;/h3>
+&lt;p>Hugging Faceのアカウントはメールアドレスがあれば作れる。有料プランを使用する場合は乗っ取り防止で2FAの設定をしておいた方がいい。&lt;br>
+&lt;a href="https://huggingface.co/">Hugging Face – The AI community building the future.&lt;/a>&lt;/p>
+&lt;h3 id="hugging-face-cli-のインストール">Hugging Face CLI のインストール&lt;/h3>
+&lt;p>Hugging FaceのGUIだと日本語対応しておらず、UIも変更される可能性もあるため、再現性を確保するためCLIをインストールする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install huggingface-cli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="access-tokens-の作成">Access Tokens の作成&lt;/h3>
+&lt;p>Settingsの[Access Tokens](&lt;a href="https://huggingface.co/settings/tokens">Hugging Face – The AI community building the future.&lt;/a>)から作成する。Repositories内の項目をチェックする。トークンは発行時にしか表示されないため、メモしておくこと。
+&lt;img src="../assets/Pasted%20image%2020250816215531.png" alt="600">&lt;/p>
+&lt;h3 id="hugging-face-cli-でログイン">Hugging Face CLI でログイン&lt;/h3>
+&lt;p>先ほど発行したトークンでログインする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hf auth login --token &amp;lt;トークン&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="git-の大容量ファイル対応">Git の大容量ファイル対応&lt;/h3>
+&lt;p>gitが大規模言語モデル等の大容量ファイルを操作できるように&lt;code>git-lfs&lt;/code>をインストールする。&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</link><pubDate>Mon, 21 Jul 2025 22:32:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</guid><description>&lt;h1 id="markdown記法">Markdown記法&lt;/h1>
 &lt;p>以下にMarkdownの書き方について記載します。&lt;/p>
 &lt;h1 id="block-elements">Block Elements&lt;/h1>
 &lt;h2 id="headers-見出し">Headers 見出し&lt;/h2>
@@ -144,33 +170,7 @@ end
 &lt;/code>&lt;/pre>
 &lt;hr>
 &lt;h2 id="hr-水平線">Hr 水平線&lt;/h2>
-&lt;p>アンダースコア&lt;code>_&lt;/code> 、アスタリスク&lt;code>*&lt;/code>、ハイフン&lt;code>-&lt;/code>などを3つ以上連続して記述します。&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h1 id="obsidianでローカルllmを使う">ObsidianでローカルLLMを使う&lt;/h1>
-&lt;p>Obsidianの拡張機能と&lt;a href="https://huggingface.co/">Hugging Face&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、&lt;a href="https://ollama.com/">Ollama&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>を使用してオフライン環境下での生産性の爆上げを図る。&lt;br>
-※自己責任で実施すること。&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
-A(Hugging FaceでLLMをフォーク) --&amp;gt; B(OllamaでLLMをpull&amp;amp;ローカル実行)
-B --&amp;gt; C(Obsidianの拡張機能でLLMを実行)
-&lt;/code>&lt;/pre>&lt;p>ちなみに表題に反して、おすすめはGemini APIです。&lt;/p>
-&lt;h2 id="実装環境">実装環境&lt;/h2>
-&lt;p>M3 Macbook&lt;/p>
-&lt;h2 id="hugging-faceでllmをフォーク">Hugging FaceでLLMをフォーク&lt;/h2>
-&lt;p>自分の使いたいLLMがいつ配信停止となっても困らないように、自分のリポジトリにフォークする。&lt;br>
-※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。
-※いつ配信停止となっても別のモデルを探せるのであれば&lt;a href="#Ollama%E3%81%A7LLM%E3%82%92pull&amp;amp;%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%AE%9F%E8%A1%8C">ObsidianでローカルLMMを使う&lt;/a>から実施すること。&lt;/p>
-&lt;h3 id="hugging-face-アカウント-の作成">Hugging Face アカウント の作成&lt;/h3>
-&lt;p>Hugging Faceのアカウントはメールアドレスがあれば作れる。有料プランを使用する場合は乗っ取り防止で2FAの設定をしておいた方がいい。&lt;br>
-&lt;a href="https://huggingface.co/">Hugging Face – The AI community building the future.&lt;/a>&lt;/p>
-&lt;h3 id="hugging-face-cli-のインストール">Hugging Face CLI のインストール&lt;/h3>
-&lt;p>Hugging FaceのGUIだと日本語対応しておらず、UIも変更される可能性もあるため、再現性を確保するためCLIをインストールする。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install huggingface-cli
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="access-tokens-の作成">Access Tokens の作成&lt;/h3>
-&lt;p>Settingsの[Access Tokens](&lt;a href="https://huggingface.co/settings/tokens">Hugging Face – The AI community building the future.&lt;/a>)から作成する。Repositories内の項目をチェックする。トークンは発行時にしか表示されないため、メモしておくこと。
-&lt;img src="../assets/Pasted%20image%2020250816215531.png" alt="600">&lt;/p>
-&lt;h3 id="hugging-face-cli-でログイン">Hugging Face CLI でログイン&lt;/h3>
-&lt;p>先ほど発行したトークンでログインする。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hf auth login --token &amp;lt;トークン&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="git-の大容量ファイル対応">Git の大容量ファイル対応&lt;/h3>
-&lt;p>gitが大規模言語モデル等の大容量ファイルを操作できるように&lt;code>git-lfs&lt;/code>をインストールする。&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid><description>&lt;h1 id="synotesを書いていくためのobsidian環境構築">synotesを書いていくためのObsidian環境構築&lt;/h1>
+&lt;p>アンダースコア&lt;code>_&lt;/code> 、アスタリスク&lt;code>*&lt;/code>、ハイフン&lt;code>-&lt;/code>などを3つ以上連続して記述します。&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link><pubDate>Mon, 21 Jul 2025 22:31:48 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid><description>&lt;h1 id="synotesを書いていくためのobsidian環境構築">synotesを書いていくためのObsidian環境構築&lt;/h1>
 &lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>最近Obsidianで日記だったり技術系のドキュメントを執筆していて、今後もこのツールにお世話になりそうなので構築方法をメモとして残します。以降、採用理由等の記載により前置きが長いため、具体的な手順だけ確認したい場合は&lt;a href="#%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86">こちら&lt;/a>へお進みください。&lt;/p>
 &lt;h2 id="obsidianって何">&lt;a href="https://obsidian.md/">Obsidian&lt;/a>って何&lt;/h2>
