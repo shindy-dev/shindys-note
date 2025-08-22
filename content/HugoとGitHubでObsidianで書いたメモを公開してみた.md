@@ -238,7 +238,7 @@ jobs:
       - name: Sync folders
         run: |
           rsync -av --delete docs/ shindys-note/content/
-          rsync -av --delete assets/ shindys-note/static/
+          rsync -av --delete assets/ shindys-note/static/assets/
 
       - name: Commit and push changes
         run: |
