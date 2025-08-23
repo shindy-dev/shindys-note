@@ -32,8 +32,7 @@ tags:
 - 会員登録不要で無料で使えるから
 - ローカルLLMを動かせるから
 
-他の競合ツールも調べたけど、`Obsidian`は `VS Code`、`OneNote`、`draw.io`の良いところを混ぜたような感じで、  
-無料にも関わらず自分の求めてることが全てできそうだった。  
+他の競合ツールも調査しましたが、`Obsidian`は`VS Code`、`OneNote`、`draw.io`の利点を兼ね備えており、無料で自分の求める機能が全て実現できると判断しました。
 
 
 ## 何の媒体使ってるの
@@ -121,13 +120,15 @@ git config core.autocrlf false
 git config --global core.autocrlf false
 ```
 #### .gitattributesに記載
+`.gitattributes`ファイルに以下の設定を追記します。
 ```
 # コミット時に改行コードをLFに変換
 * text eol=lf
 ```
-↓
+
+設定を反映させるには、以下のコマンドを実行してGitの設定を再読み込みしてください。
 ```bash
-# カレントディレクトりのgitの設定を再読み込み
+# カレントディレクトリのgitの設定を再読み込み
 git rm --cached -r .
 git reset
 ```
