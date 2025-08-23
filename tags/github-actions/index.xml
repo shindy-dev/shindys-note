@@ -20,7 +20,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── LICENSE # リポジトリのライセンスファイル
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── README.md # リポジトリのREADMEファイル
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="今回の方針">今回の方針&lt;/h2>
-&lt;p>Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。&lt;/p>
+&lt;p>Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。&lt;/p>
 &lt;ol>
 &lt;li>Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する
 └ Hugo環境をデフォルトブランチに構築する&lt;/li>
