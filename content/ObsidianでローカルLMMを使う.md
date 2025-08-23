@@ -27,7 +27,7 @@ M3 Macbook
 自分の使いたいLLMがいつ配信停止となっても困らないように、自分のリポジトリにフォークする。  
 ※ライセンスには注意し、自己責任で行うこと
 ※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。  
-※いつ配信停止となっても別のモデルを探せるのであれば[ObsidianでローカルLMMを使う](#OllamaでLLMをpull&ローカル実行)から実施すること。
+※いつ配信停止となっても別のモデルを探せるのであれば[OllamaでLLMをpull＆ローカル実行](#OllamaでLLMをpull＆ローカル実行)から実施すること。
 ### Hugging Face アカウント の作成
 Hugging Faceのアカウントはメールアドレスがあれば作れる。有料プランを使用する場合は乗っ取り防止で2FAの設定をしておいた方がいい。  
 [Hugging Face – The AI community building the future.](https://huggingface.co/)
@@ -90,7 +90,7 @@ hf upload shindy-dev/granite-embedding-278m-shindy-multilingual-GGUF <ベース�
 hf cache delete
 ```
 
-## OllamaでLLMをpull、ローカル実行
+## OllamaでLLMをpull＆ローカル実行
 
 ### Ollamaのインストール
 ```bash
