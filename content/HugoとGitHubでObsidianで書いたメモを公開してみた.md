@@ -108,9 +108,21 @@ title = 'My New Hugo Site'
 #### テーマ変更
 テーマは[Hugo Themes](https://themes.gohugo.io/)に一覧があります。今回は`ananke`に変更する例
 ```bash
+cd shindys-note
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 # 設定ファイルでテーマを設定すれば完了です
 echo 'theme = "ananke"' >> hugo.toml
+```
+
+`shindys-note`を再度クローンしたときに、submoduleが配置されていない場合はリポジトリ内で以下のコマンドを実行してください。
+```bash
+git submodule update --init --recursive
+```
+
+またsubmoduleを解除（テーマをアンインストール）する場合は以下のコマンドを実行後、変更をコミットしてください。（hugo.tomlのthemeも削除してください。）
+```bash
+git submodule deinit -f themes/ananke
+git rm -f themes/ananke
 ```
 #### post追加
 以下のコマンドで`/archetypes/default.md`をテンプレートとして`/content/posts/hello.md`を作成します。あくまでテスト用なので、自分であらかじめ作成したドキュメントを`/content/posts`へ格納してテストしていただいても構いません。テスト用のドキュメントをコミット時に対象とするかは自己判断でお願いします。
@@ -152,7 +164,7 @@ GitHubのリモートリポジトリの作成方法は多種多様なので、�
 ```
 
 ### 2. GitHub Pages公開環境を`gh-pages`ブランチに構築する
-ここでは、GitHub Actionsを使用して`shindys-note`のデフォルトブランチに更新があった際に、自動でHugoによるビルドを行い成果物をgh-pagesへ反映する仕組みを構築します。手順としては以下の内容を記述した`.github/workflows/deploy.yml`を`shindys-note`のデフォルトブランチで作成し、pushするだけです。以下テキストのコメント部分は適宜修正してください。
+ここでは、GitHub Actionsを使用して`shindys-note`のデフォルトブランチに更新があった際に、自動でHugoによるビルドを行い成果物をgh-pagesへ反映する仕組みを構築します。手順としては以下の内容を記述した`.github/workflows/deploy.yml`を`shindys-note`のデフォルトブランチで作成し、pushするだけです。コメント部分に注意して適宜修正してください。
 ```yml
 name: Deploy Hugo site to GitHub Pages
 
@@ -208,7 +220,7 @@ GitHubリポジトリのActionsタブを見ると成否が伺えます。
 
 #### 3.3 Vaultリポジトリ内にGitHub Actions用のスクリプトを作成
 以下の内容を記述した`.github/workflows/sync-to-note.yml`を作成し、pushしてください。
-pushすると、Actionsが動作し、`shindys-note`へ同期が行われます。
+pushすると、Actionsが動作し、`shindys-note`へ同期が行われます。コメント部分に注意して適宜修正してください。
 ```yml
 name: Sync Vault to shindys-note
 
@@ -237,8 +249,8 @@ jobs:
 
       - name: Sync folders
         run: |
-          rsync -av --delete docs/ shindys-note/content/
-          rsync -av --delete assets/ shindys-note/static/assets/
+          rsync -av --delete docs/ shindys-note/content/  # テーマによってコピー先は変更してください。
+          rsync -av --delete assets/ shindys-note/static/assets/  # Vault の設定によって変更してください
 
       - name: Commit and push changes
         run: |
@@ -258,4 +270,4 @@ jobs:
 3. Branchには`gh-pages`、`/(root)`を設定
 ![](../assets/Pasted%20image%2020250822010523.png)
 
-ローカル実行したときと同じ内容が表示されれば、公開完了です🎵
+ローカルでテストしたときと同じ内容が表示されれば、公開完了です🎵

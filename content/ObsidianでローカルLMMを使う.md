@@ -90,7 +90,7 @@ hf upload shindy-dev/granite-embedding-278m-shindy-multilingual-GGUF <ベース�
 hf cache delete
 ```
 
-## OllamaでLLMをpull&ローカル実行
+## OllamaでLLMをpull、ローカル実行
 
 ### Ollamaのインストール
 ```bash
