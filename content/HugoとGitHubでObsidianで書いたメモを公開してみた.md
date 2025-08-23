@@ -34,7 +34,7 @@ ObsidianのVaultはGitHubのプライベートリポジトリで現在管理し�
 ```
 
 ## 今回の方針
-Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意になります。
+Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。
 1. Publicリポジトリ`shindys-note`を作成する
    └ Hugo環境をデフォルトブランチに構築する
 2. GitHub Pages公開用ブランチ`gh-pages`を構築する
@@ -63,7 +63,7 @@ find . -type d -empty -exec touch {}/.gitkeep \;
 git init
 ```
 ### （任意）.gitignoreのおすすめ設定
-.gitignoreファイルは格納しておくと中に記述したパスをGitが自動で追跡対象外してくれます。
+.gitignoreファイルを作成しておくと、中に記述したパスをGitが自動で追跡対象外にしてくれます。
 ```.gitignore
 # Hugo build output
 /public/
@@ -92,12 +92,12 @@ node_modules/
 ```
 
 ### サイトの基本情報やテーマ変更やローカルでのテスト方法
-GitHubへpushする前にちゃんと自分の好きなテーマで記事がちゃんと表示されるかテストしましょう。
+GitHubへpushする前に自分の好きなテーマで記事がちゃんと表示されるかテストしましょう。
 
 #### 基本情報（URLや言語、タイトル等）
 hugo.toml内で設定できます。
 ```toml
-# github pagesのURLは基本は以下の形式です
+# GitHub PagesのURLは通常、以下の形式です
 # https://<githubユーザ名>.github.io/リポジトリ名/
 baseURL = 'https://shindy-dev.github.io/shindys-note/'
 
@@ -109,7 +109,7 @@ title = 'My New Hugo Site'
 テーマは[Hugo Themes](https://themes.gohugo.io/)に一覧があります。今回は`ananke`に変更する例
 ```bash
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-# 設定ファイルのthemeを設定できればOK
+# 設定ファイルでテーマを設定すれば完了です
 echo 'theme = "ananke"' >> hugo.toml
 ```
 #### post追加
@@ -169,7 +169,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          submodules: true # テーマをサブモジュールにしてる場合
+          submodules: true # テーマをサブモジュールとして使用している場合
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -194,7 +194,7 @@ GitHubリポジトリのActionsタブを見ると成否が伺えます。
 ここまでで、`shindys-note`の環境は整いました。あとはObsidianのVault内の更新があれば`shindys-note`へ同期を行う仕組みを構築すれば、GitHub Pagesへの公開設定を実施して完了です。
 
 ### 3. Vault内対象フォルダの内容を`master`へ同期する
-プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメントに関する資材に変更があった場合に、Vault内対象フォルダの「docs」や「assets」で`shindys-note`の`master`ブランチの「content」や「assets」を置換する仕組みを構築します。
+プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内対象フォルダの「docs」や「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
 
 #### 3.1 Personal Access Token (PAT)の作成
 リポジトリ間の操作になりますので、以下の手順でリポジトリ操作権限を持ったPATを作成します。
