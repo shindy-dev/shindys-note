@@ -1,5 +1,6 @@
 baseURL = 'https://shindy-dev.github.io/shindys-note/'
 languageCode = 'ja'
+defaultContentLanguage = "ja"
 title = "Shindy's Note"
 theme = "PaperMod"
 
@@ -18,7 +19,7 @@ pygmentsUseClasses = true
   env = "production"
   title = "Shindy's Note"
   description = "趣味書いた技術メモです🎹"
-  keywords = ["Blog", "Portfolio", "PaperMod"]
+  keywords = ["Blog", "shindy", "Tech"]
   author = "shindy"
   # author = ["Me", "You"]
   images = ["/shindys-note/favicon.ico"]
