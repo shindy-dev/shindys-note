@@ -53,9 +53,9 @@ SSGにHugoを選んだ理由は好みのテーマがあったからです。GitH
 
 
 ## 今回の方針
-Vault内の「docs/public」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。
+Vault内の「docs/public」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。登場するリポジトリ名やブランチ名は任意の名称をお使いください。
 ```mermaid
-flowchart LR
+flowchart TD
     A[Publicリポジトリ shindys-note の作成] --> B[Hugo環境をデフォルトブランチに構築]
     B --> C[GitHub Pages公開環境を gh-pages ブランチに構築]
     C --> D[Vault内の対象フォルダを master へ同期]
