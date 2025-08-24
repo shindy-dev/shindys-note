@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Markdown on Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/tags/markdown/</link><description>Recent content in Markdown on Shindy's Note</description><generator>Hugo</generator><language>ja-JP</language><lastBuildDate>Mon, 21 Jul 2025 22:32:20 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/tags/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</link><pubDate>Mon, 21 Jul 2025 22:32:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</guid><description>&lt;h1 id="markdown記法">Markdown記法&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Markdown on Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/tags/markdown/</link><description>Recent content in Markdown on Shindy's Note</description><image><title>Shindy's Note</title><url>https://shindy-dev.github.io/shindys-note/favicon.ico</url><link>https://shindy-dev.github.io/shindys-note/favicon.ico</link></image><generator>Hugo -- 0.148.2</generator><language>ja</language><lastBuildDate>Mon, 21 Jul 2025 22:32:20 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/tags/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</link><pubDate>Mon, 21 Jul 2025 22:32:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/markdown%E8%A8%98%E6%B3%95/</guid><description>&lt;h1 id="markdown記法">Markdown記法&lt;/h1>
 &lt;p>以下にMarkdownの書き方について記載します。&lt;/p>
 &lt;h1 id="block-elements">Block Elements&lt;/h1>
 &lt;h2 id="headers-見出し">Headers 見出し&lt;/h2>
@@ -35,7 +35,7 @@ piyo&lt;/p>
 &lt;hr>
 &lt;h2 id="blockquotes-引用">Blockquotes 引用&lt;/h2>
 &lt;p>先頭に&lt;code>&amp;gt;&lt;/code>を記述します。ネストは&lt;code>&amp;gt;&lt;/code>を多重に記述します。&lt;/p>
-&lt;pre tabindex="0">&lt;code>&amp;gt; 引用 
+&lt;pre tabindex="0">&lt;code>&amp;gt; 引用
 &amp;gt; 引用
 &amp;gt;&amp;gt; 多重引用
 &lt;/code>&lt;/pre>&lt;blockquote>
@@ -56,14 +56,14 @@ piyo&lt;/p>
 &lt;h2 id="pre-整形済みテキスト">pre 整形済みテキスト&lt;/h2>
 &lt;p>半角スペース4個もしくはタブで、コードブロックをpre表示できます&lt;/p>
 &lt;pre tabindex="0">&lt;code> class Hoge
- def hoge
- print &amp;#39;hoge&amp;#39;
- end
- end
+def hoge
+print &amp;#39;hoge&amp;#39;
+end
+end
 &lt;/code>&lt;/pre>&lt;pre>&lt;code>class Hoge
- def hoge
- print 'hoge'
- end
+def hoge
+print 'hoge'
+end
 end
 &lt;/code>&lt;/pre>
 &lt;hr>
@@ -103,29 +103,29 @@ Markdownの記法については&lt;a href="Markdown%E8%A8%98%E6%B3%95.md">こ�
 &lt;h3 id="obsidianのインストール">Obsidianのインストール&lt;/h3>
 &lt;p>Obsidianの&lt;a href="https://obsidian.md/">公式サイト&lt;/a>でインストーラを入手してインストールします。&lt;br>
 brewコマンドもからインストールできます。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install --cask obsidian 
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install --cask obsidian
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="vaultの作成">Vaultの作成&lt;/h3>
 &lt;p>Obsidianを開いて「保管庫を新規作成する」の「作成」を押下します。&lt;/p>
-&lt;p>&lt;img src="../assets/create_vault1.png" alt="|250">&lt;/p>
+&lt;p>&lt;img alt="|250" loading="lazy" src="../assets/create_vault1.png">&lt;/p>
 &lt;p>「保管庫の名称」に任意のVault名（リポジトリ名なので英数字）、「ロケーション」にVaultの格納先を指定し、「作成」を押下します。&lt;/p>
-&lt;p>&lt;img src="../assets/create_vault2.png" alt="|250">&lt;/p>
+&lt;p>&lt;img alt="|250" loading="lazy" src="../assets/create_vault2.png">&lt;/p>
 &lt;p>Welcomeページが開いたらVaultの作成は完了です。&lt;/p>
-&lt;p>&lt;img src="../assets/create_vault3.png" alt="|400">&lt;/p>
+&lt;p>&lt;img alt="|400" loading="lazy" src="../assets/create_vault3.png">&lt;/p>
 &lt;h3 id="gitのインストール">Gitのインストール&lt;/h3>
 &lt;p>今回はGitHubでノートをバージョン管理したいので Gitの&lt;a href="https://git-scm.com/">公式サイト&lt;/a>からインストーラを入手してインストールします。&lt;br>
 他にもObsidian公式でクラウド保存する有料サービスや、iCloudでも保存する機能、&lt;br>
 DropBox等クラウドサービスと同期するプラグインもあるので、この辺は自分の用途や好みに合わせてください。&lt;br>
 brewコマンドもからインストールできます。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install git
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install git
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="作成したvault内のファイルをgitの追跡対象にする">作成したVault内のファイルをGitの追跡対象にする&lt;/h3>
 &lt;p>Gitをインストールした以下のコマンドで先ほど作成したVault内のファイルをGitの追跡対象として追加します。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 新規Vaultに移動&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd &lt;span style="color:#f92672">[&lt;/span>Vaultのあるパス&lt;span style="color:#f92672">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># git初期化&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git init .
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># GitHubユーザ名登録&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config user.name &lt;span style="color:#f92672">[&lt;/span>GitHubユーザ名&lt;span style="color:#f92672">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># GitHubメールアドレス登録&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config user.email &lt;span style="color:#f92672">[&lt;/span>GitHubメールアドレス&lt;span style="color:#f92672">]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 新規Vaultに移動&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="o">[&lt;/span>Vaultのあるパス&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># git初期化&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git init .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># GitHubユーザ名登録&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config user.name &lt;span class="o">[&lt;/span>GitHubユーザ名&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># GitHubメールアドレス登録&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config user.email &lt;span class="o">[&lt;/span>GitHubメールアドレス&lt;span class="o">]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>GitHubのユーザとメールアドレスのデフォルト値を設定する（git initの度に設定するのが面倒な）場合は&lt;br>
 &lt;code>--global&lt;/code>オプションを付与してください。&lt;/p></description></item></channel></rss>

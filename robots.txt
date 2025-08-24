@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://shindy-dev.github.io/shindys-note/sitemap.xml
