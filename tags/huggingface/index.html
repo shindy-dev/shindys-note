@@ -14,19 +14,7 @@ Hugging Face – The AI community building the future.
 Hugging Face CLI のインストール Hugging FaceのGUIだと日本語対応しておらず、UIも変更される可能性もあるため、再現性を確保するためCLIをインストールする。
 1 brew install huggingface-cli Access Tokens の作成 Settingsの[Access Tokens](Hugging Face – The AI community building the future.)から作成する。Repositories内の項目をチェックする。トークンは発行時にしか表示されないため、メモしておくこと。 Hugging Face CLI でログイン 先ほど発行したトークンでログインする。
 1 hf auth login --token &lt;トークン> Git の大容量ファイル対応 gitが大規模言語モデル等の大容量ファイルを操作できるようにgit-lfsをインストールする。
-...</p></div><footer class=entry-footer><span title='2025-08-15 20:41:20 +0000 UTC'>2025年8月15日</span>&nbsp;·&nbsp;1 分&nbsp;·&nbsp;203 文字&nbsp;·&nbsp;shindy</footer><a class=entry-link aria-label="post link to ObsidianでローカルLLMを使う" href=https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>ObsidianでローカルLLMを使う</h2></header><div class=entry-content><p>はじめに Obsidianの拡張機能とHugging Face1、Ollama2を使用してオフライン環境下での生産性の爆上げを図る。
-※自己責任で実施すること。
-flowchart LR A(Hugging FaceでLLMをフォーク) --> B(OllamaでLLMをpull&ローカル実行) B --> C(Obsidianの拡張機能でLLMを実行) ちなみに表題に反して、おすすめはGemini APIです。
-実装環境 M3 Macbook
-Hugging FaceでLLMをフォーク 自分の使いたいLLMがいつ配信停止となっても困らないように、自分のリポジトリにフォークする。
-※ライセンスには注意し、自己責任で行うこと ※Hugging FaceにはOllamaで使えない形式のモデルも存在するため選定の際は注意すること。
-※いつ配信停止となっても別のモデルを探せるのであればOllamaでLLMをpull＆ローカル実行から実施すること。
-Hugging Face アカウント の作成 Hugging Faceのアカウントはメールアドレスがあれば作れる。有料プランを使用する場合は乗っ取り防止で2FAの設定をしておいた方がいい。
-Hugging Face – The AI community building the future.
-Hugging Face CLI のインストール Hugging FaceのGUIだと日本語対応しておらず、UIも変更される可能性もあるため、再現性を確保するためCLIをインストールする。
-1 brew install huggingface-cli Access Tokens の作成 Settingsの[Access Tokens](Hugging Face – The AI community building the future.)から作成する。Repositories内の項目をチェックする。トークンは発行時にしか表示されないため、メモしておくこと。 Hugging Face CLI でログイン 先ほど発行したトークンでログインする。
-1 hf auth login --token &lt;トークン> Git の大容量ファイル対応 gitが大規模言語モデル等の大容量ファイルを操作できるようにgit-lfsをインストールする。
-...</p></div><footer class=entry-footer><span title='2025-08-15 20:41:20 +0000 UTC'>2025年8月15日</span>&nbsp;·&nbsp;1 分&nbsp;·&nbsp;203 文字&nbsp;·&nbsp;shindy</footer><a class=entry-link aria-label="post link to ObsidianでローカルLLMを使う" href=https://shindy-dev.github.io/shindys-note/posts/public/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://shindy-dev.github.io/shindys-note/>Shindy's Note</a></span> ·
+...</p></div><footer class=entry-footer><span title='2025-08-15 20:41:20 +0000 UTC'>2025年8月15日</span>&nbsp;·&nbsp;1 分&nbsp;·&nbsp;203 文字&nbsp;·&nbsp;shindy</footer><a class=entry-link aria-label="post link to ObsidianでローカルLLMを使う" href=https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://shindy-dev.github.io/shindys-note/>Shindy's Note</a></span> ·
 <a href=/shindys-note/terms/>利用規約</a> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
