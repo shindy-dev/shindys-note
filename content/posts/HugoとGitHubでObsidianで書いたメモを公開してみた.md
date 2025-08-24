@@ -165,7 +165,7 @@ hugo new posts/hello.md
 hugo server -D
 ```
 - `-D` は下書き（draft = trueの記事）も表示するオプションです。  
-- 起動後ブラウザで確認 → デフォルトURL：[http://localhost:1313](http://localhost:1313)  
+- 起動後ブラウザで確認 → `http://localhost:1313/<site name>/`
 - 保存するたびに自動でリロードしてくれます。
 
 
