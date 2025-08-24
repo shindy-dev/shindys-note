@@ -1,5 +1,5 @@
 ---
-title: synotesを書いていくためのObsidian環境構築
+title: Obsidian環境構築
 created: 2025-07-21
 date: 2025-07-21T22:31:48
 author: shindy
