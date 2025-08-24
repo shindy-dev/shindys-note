@@ -314,22 +314,5 @@ jobs:
 私の設定は以下で公開中です。  
 [shindys-note/hugo.toml at master · shindy-dev/shindys-note](https://github.com/shindy-dev/shindys-note/blob/master/hugo.toml)
 
-### Google Analyticsについて
-`hugo.toml`には以下のようにGoogle Analytics IDを設定できる箇所があります。
-```y
-  [params.analytics.google]
-    SiteVerificationTag = "$GOOGLE_ANALYTICS_ID"
-```
-私の場合はIDを公開したくなかったので、以下のように変数として定義し、GitHub ActionsでGitHub Pagesにデプロイする際、Secretsに登録した値で置換するようにしています。`sed`コマンドが置換処理を制御しています。
-```yml
-      - name: Build Hugo site
-        run: |
-          sed -i "s/\$GOOGLE_ANALYTICS_ID/${GOOGLE_ANALYTICS_ID}/g" hugo.toml
-          hugo --minify
-        env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-```
-[shindys-note/.github/workflows/deploy.yml at master · shindy-dev/shindys-note](https://github.com/shindy-dev/shindys-note/blob/master/.github/workflows/deploy.yml)
-
 
 ***So everyone, enjoy life!***
