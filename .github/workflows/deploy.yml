@@ -35,13 +35,9 @@ jobs:
           echo "=== PaperMod content ==="
           ls -R ./themes/PaperMod/
           
-          # Google Analytics ID を設定
-          sed -i "s/\$GOOGLE_ANALYTICS_ID/${GOOGLE_ANALYTICS_ID}/g" hugo.toml
           # Hugoのビルドを実行
           hugo --minify
-        env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
