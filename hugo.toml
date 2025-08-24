@@ -136,6 +136,12 @@ pygmentsUseClasses = true
 
 [menu]
   [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
     identifier = "archive"
     name = "Archive"
     url = "/Archives/"
@@ -154,9 +160,9 @@ pygmentsUseClasses = true
     weight = 30
 
   [[menu.main]]
-    identifier = "github"
-    name = "GitHub"
-    url = "https://github.com/shindy-dev"
+    identifier = "repo"
+    name = "Repo"
+    url = "https://github.com/shindy-dev/shindys-note"
     weight = 40
 
 [markup]
