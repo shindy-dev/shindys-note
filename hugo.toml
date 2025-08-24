@@ -85,21 +85,21 @@ pygmentsUseClasses = true
     Title = "Shindy's Note"
     Content = "趣味書いた技術メモを公開しています🎹"
 
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/shindy-dev"
+    [[params.socialIcons]]
+      name = "github"
+      url = "https://github.com/shindy-dev"
 
-  [[params.socialIcons]]
-    name = "x"
-    url = "https://x.com/ShindyDev"
+    [[params.socialIcons]]
+      name = "x"
+      url = "https://x.com/ShindyDev"
 
-  [[params.socialIcons]]
-    name = "youtube"
-    url = "https://www.youtube.com/@shindy-dev"
+    [[params.socialIcons]]
+      name = "youtube"
+      url = "https://www.youtube.com/@shindy-dev"
 
-  [[params.socialIcons]]
-    name = "kofi"
-    url = "https://ko-fi.com/shindy_dev"
+    [[params.socialIcons]]
+      name = "kofi"
+      url = "https://ko-fi.com/shindy_dev"
 
 
   [params.analytics.google]
@@ -135,7 +135,6 @@ pygmentsUseClasses = true
   home = ["HTML", "JSON", "RSS"]
 
 [menu]
-
   [[menu.main]]
     identifier = "archive"
     name = "Archive"
@@ -154,6 +153,11 @@ pygmentsUseClasses = true
     url = "/search/"
     weight = 30
 
+  [[menu.main]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/shindy-dev"
+    weight = 40
 
 [markup]
   [markup.highlight]
