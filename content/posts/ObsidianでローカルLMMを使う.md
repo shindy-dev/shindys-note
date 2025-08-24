@@ -41,7 +41,7 @@ brew install huggingface-cli
 
 ### Access Tokens の作成
 Settingsの[Access Tokens]([Hugging Face – The AI community building the future.](https://huggingface.co/settings/tokens))から作成する。Repositories内の項目をチェックする。トークンは発行時にしか表示されないため、メモしておくこと。
-![600](../assets/Pasted%20image%2020250816215531.png)
+![600](../../assets/Pasted%20image%2020250816215531.png)
 
 ### Hugging Face CLI でログイン
 先ほど発行したトークンでログインする。
@@ -100,7 +100,7 @@ brew install --cask ollama
 
 ### Ollamaを起動  
 一度アイコンから起動しないと`ollama`コマンドが実行できなかった。  
-![|200](../assets/application_Icon_of_ollama.png)
+![|200](../../assets/application_Icon_of_ollama.png)
 
 ### LLMをpull
 ```bash
@@ -122,8 +122,8 @@ ObsidianでAIとチャットできる拡張機能。チャットを通じて編�
 公式ドキュメント：[Home · glowingjade/obsidian-smart-composer Wiki](https://github.com/glowingjade/obsidian-smart-composer/wiki)
 
 設定画面で`ollama pull`したモデルを設定する。
-![600](../assets/Pasted%20image%2020250817000235.png)
-![600](../assets/Pasted%20image%2020250817000313.png)
+![600](../../assets/Pasted%20image%2020250817000235.png)
+![600](../../assets/Pasted%20image%2020250817000313.png)
 
 
 [^1]: 作成したAIモデル、データセット、アプリを管理&公開できるGitHubライクなプラットフォーム

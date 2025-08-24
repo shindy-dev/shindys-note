@@ -30,13 +30,15 @@ ObsidianのVaultはGitHubのプライベートリポジトリで現在管理し�
 ├── .obsidian/         # Obsidianの設定
 ├── diary/               # 日記
 ├── docs/               # 技術系のドキュメント
+│      └public             # 成果物
+│      └draft              # 下書き
 ├── assets/             # 画像や資料アセット（docs用）
 ├── LICENSE           # リポジトリのライセンスファイル
 └── README.md     # リポジトリのREADMEファイル
 ```
 
 ## 今回の方針
-Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。
+Vault内の「docs/public」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。
 1. Publicリポジトリ`shindys-note`を作成する
    └ Hugo環境をデフォルトブランチに構築する
 2. GitHub Pages公開用ブランチ`gh-pages`を構築する
@@ -141,7 +143,8 @@ hugo server -D
 
 
 好みのテーマで作成した記事が表示されたら確認は終わりです。今回は細かなレイアウトの修正は割愛します。
-![](../assets/Pasted%20image%2020250821215604.png)
+
+![](../../assets/Pasted%20image%2020250821215604.png)
 
 ### `shindys-note`をGitHub へ Publicリポジトリとして公開
 GitHubのリモートリポジトリの作成方法は多種多様なので、ご自身に合うやり方で公開してください。
@@ -203,12 +206,12 @@ jobs:
 ```
 
 GitHubリポジトリのActionsタブを見ると成否が伺えます。
-![](../assets/Pasted%20image%2020250822001228.png)
+![](../../assets/Pasted%20image%2020250822001228.png)
 
 ここまでで、`shindys-note`の環境は整いました。あとはObsidianのVault内の更新があれば`shindys-note`へ同期を行う仕組みを構築すれば、GitHub Pagesへの公開設定を実施して完了です。
 
 ## 3. Vault内対象フォルダの内容を`master`へ同期する
-プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内対象フォルダの「docs」や「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
+プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内対象フォルダの「docs/public」や「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
 
 ### 3.1 Personal Access Token (PAT)の作成
 リポジトリ間の操作になりますので、以下の手順でリポジトリ操作権限を持ったPATを作成します。
@@ -231,7 +234,7 @@ on:
     branches:
       - master   # Vaultのメインブランチに合わせる
     paths:
-      - "docs/**"
+      - "docs/public/**"
       - "assets/**"
 
 jobs:
@@ -251,7 +254,7 @@ jobs:
 
       - name: Sync folders
         run: |
-          rsync -av --delete docs/ shindys-note/content/  # テーマによってコピー先は変更してください。
+          rsync -av --delete docs/public/ shindys-note/content/  # テーマによってコピー先は変更してください。
           rsync -av --delete assets/ shindys-note/static/assets/  # Vault の設定によって変更してください
 
       - name: Commit and push changes
@@ -267,9 +270,9 @@ jobs:
 ## 4. `gh-pages`ブランチをGitHub Pagesで公開する
 最後に構築した公開用環境をGitHub Pagesに公開する設定を行います。
 1. GitHubリポジトリのSettingsタブのPagesを選択
-![](../assets/Pasted%20image%2020250822010141.png)
+![](../../assets/Pasted%20image%2020250822010141.png)
 2. Build and deploymentのSourceに「Deploy from a branch」を選択
 3. Branchには`gh-pages`、`/(root)`を設定
-![](../assets/Pasted%20image%2020250822010523.png)
+![](../../assets/Pasted%20image%2020250822010523.png)
 
 ローカルでテストしたときと同じ内容が表示されれば、公開完了です🎵

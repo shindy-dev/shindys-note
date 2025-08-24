@@ -53,15 +53,15 @@ brew install --cask obsidian
 ### Vaultの作成
 Obsidianを開いて「保管庫を新規作成する」の「作成」を押下します。  
 
-![|250](../assets/create_vault1.png)
+![|250](../../assets/create_vault1.png)
 
 「保管庫の名称」に任意のVault名（リポジトリ名なので英数字）、「ロケーション」にVaultの格納先を指定し、「作成」を押下します。  
 
-![|250](../assets/create_vault2.png)
+![|250](../../assets/create_vault2.png)
 
 Welcomeページが開いたらVaultの作成は完了です。
 
-![|400](../assets/create_vault3.png)
+![|400](../../assets/create_vault3.png)
 
 ### Gitのインストール
 今回はGitHubでノートをバージョン管理したいので Gitの[公式サイト](https://git-scm.com/)からインストーラを入手してインストールします。  
