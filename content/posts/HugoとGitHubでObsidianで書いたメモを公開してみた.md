@@ -10,8 +10,6 @@ tags:
   - GitHubPages
   - Obsidian
 draft: "false"
-images:
-  - ../../assets/Pasted%20image%2020250824202207.png
 ---
 ## はじめに
 今回はGit管理しているObsidianのVault内ドキュメントの一部を[Hugo](https://gohugo.io/)というSSG（静的サイトジェネレータ）を用いて[GitHub Pages](https://docs.github.com/ja/pages/quickstart)へ無料で自動公開する仕組みを構築してみました🎵
@@ -26,7 +24,7 @@ images:
   他OSとの違いはHugoのインストール方法程度ですので、他OSユーザーも参考になるかと思います。
 
 ## 対応動機
-ObsidianのVault（記事を管理しているディレクトリ）はGitHubのPrivateリポジトリで管理しています。以下のディレクトリ構造のように、便宜上技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメント（docs/public）のみを公開する方法を模索していました。
+ObsidianのVault（記事を管理しているディレクトリ）はGitHubのPrivateリポジトリで管理しています。以下のディレクトリ構造のように、便宜上技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメント（`docs/public`）のみを公開する方法を模索していました。
 ```text
 ├── .git/                  # git
 ├── .obsidian/         # Obsidianの設定
@@ -53,7 +51,7 @@ SSGにHugoを選んだ理由は好みのテーマがあったからです。GitH
 
 
 ## 今回の方針
-Vault内の「docs/public」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。登場するリポジトリ名やブランチ名は任意の名称をお使いください。
+Vault内の`docs/public`や`assets`フォルダの内容だけを公開するために、以下の手順を実施します。登場するリポジトリ名やブランチ名は任意の名称をお使いください。
 ```mermaid
 flowchart TD
     A[Publicリポジトリ shindys-note の作成] --> B[Hugo環境をデフォルトブランチに構築]
@@ -242,7 +240,7 @@ GitHubリポジトリのActionsタブを見ると成否が伺えます。
 ここまでで`shindys-note`の環境は整いました。あとはObsidianのVault内の更新があれば`shindys-note`へ同期を行う仕組みを構築し、GitHub Pagesへの公開設定を実施すれば完了です。
 
 ## 3. Vault内の対象フォルダを`master`へ同期
-Privateリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内の対象フォルダ「docs/public」および「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
+Privateリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内の対象フォルダ`docs/public`および`assets`フォルダの内容を`shindys-note`の`master`ブランチへ同期（置換）する仕組みを構築します。
 
 ### 3.1 Personal Access Token (PAT)の作成
 リポジトリ間の操作になりますので、以下の手順でリポジトリ操作権限を持ったPATを作成します。
@@ -285,8 +283,8 @@ jobs:
 
       - name: Sync folders
         run: |
-          rsync -av --delete docs/public/ shindys-note/content/  # テーマによってコピー先は変更してください。
-          rsync -av --delete assets/ shindys-note/static/assets/  # Vault の設定によって変更してください
+          rsync -av --delete docs/public/ shindys-note/content/  # ドキュメントの同期先。テーマによって動機先は変更してください。
+          rsync -av --delete assets/ shindys-note/static/assets/  # assetsの同期先。Obsidianの添付ファイル関連の設定によって変更してください
 
       - name: Commit and push changes
         run: |
