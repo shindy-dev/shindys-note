@@ -42,6 +42,7 @@ pygmentsUseClasses = true
   hideSummary = false
   showtoc = true
   tocopen = false
+  hasMermaid = true
 
   [params.assets]
     disableHLJS = true
