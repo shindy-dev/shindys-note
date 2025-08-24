@@ -163,3 +163,6 @@ GitHub DesktopからであればUI操作で紐付け等できます。（割愛�
 チャットbotでAIがドキュメントの執筆支援をしてくれるプラグインです。  
 APIからollamaを使用したLLMのローカル実行まで対応しています。  
 [ObsidianでローカルLMMを使う](ObsidianでローカルLMMを使う.md)
+
+
+***So everyone, enjoy life!***

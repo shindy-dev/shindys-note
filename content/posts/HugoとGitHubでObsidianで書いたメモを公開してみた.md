@@ -1,7 +1,7 @@
 ---
 title: HugoとGitHubでObsidianで書いたメモを公開してみた
 created: 2025-08-20
-date: 2025-08-20T22:53:23
+date: 2025-08-24T22:53:23
 author: shindy
 tags:
   - Hugo
@@ -36,6 +36,9 @@ ObsidianのVaultはGitHubのプライベートリポジトリで現在管理し�
 ├── LICENSE           # リポジトリのライセンスファイル
 └── README.md     # リポジトリのREADMEファイル
 ```
+
+ちなみにObsidianの添付ファイルのパスに関する設定は以下のとおりとしています。
+![](../../assets/Pasted%20image%2020250824201710.png)
 
 ## 今回の方針
 Vault内の「docs/public」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。
@@ -278,3 +281,32 @@ jobs:
 ![](../../assets/Pasted%20image%2020250822010523.png)
 
 ローカルでテストしたときと同じ内容が表示されれば、公開完了です🎵
+
+
+## おまけ（2025年8月24日追記）
+最近は[PaperMod](https://github.com/adityatelange/hugo-PaperMod)というテーマを使っています。見た目はシンプルでスタイリッシュなのが特徴的なテーマです。ざっとみた感じHugoのテーマの中で1番人気ありそうでした👌  
+![](../../assets/Pasted%20image%2020250824202207.png)
+
+基本設定は設定ファイル（`hugo.toml`等）で完結して、割と簡単に使えるので私もおすすめします🥰  
+私の設定は以下で公開中です。  
+[shindys-note/hugo.toml at master · shindy-dev/shindys-note](https://github.com/shindy-dev/shindys-note/blob/master/hugo.toml)
+
+### Google Analyticsについて
+`hugo.toml`には以下のようにGoogle Analytics IDを設定できる箇所があります。
+```y
+  [params.analytics.google]
+    SiteVerificationTag = "$GOOGLE_ANALYTICS_ID"
+```
+私の場合はIDを公開したくなかったので以下のように変数っぽく定義して、GitHub Actionsで、GitHub Pagesにデプロイする際にSecretsに登録した値で置換するようにしています。`sed`コマンドが置換制御です。
+```yml
+      - name: Build Hugo site
+        run: |
+          sed -i "s/\$GOOGLE_ANALYTICS_ID/${GOOGLE_ANALYTICS_ID}/g" hugo.toml
+          hugo --minify
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+```
+[shindys-note/.github/workflows/deploy.yml at master · shindy-dev/shindys-note](https://github.com/shindy-dev/shindys-note/blob/master/.github/workflows/deploy.yml)
+
+
+***So everyone, enjoy life!***
