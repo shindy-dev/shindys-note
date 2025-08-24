@@ -7,6 +7,7 @@ tags:
   - GitHub
   - GitHub-Actions
   - GitHub-Pages
+  - Obsidian
 ---
 # HugoとGitHubでObsidianで書いたメモを公開してみた
 
@@ -163,7 +164,7 @@ GitHubのリモートリポジトリの作成方法は多種多様なので、�
 └── README.md
 ```
 
-### 2. GitHub Pages公開環境を`gh-pages`ブランチに構築する
+## 2. GitHub Pages公開環境を`gh-pages`ブランチに構築する
 ここでは、GitHub Actionsを使用して`shindys-note`のデフォルトブランチに更新があった際に、自動でHugoによるビルドを行い成果物をgh-pagesへ反映する仕組みを構築します。手順としては以下の内容を記述した`.github/workflows/deploy.yml`を`shindys-note`のデフォルトブランチで作成し、pushするだけです。コメント部分に注意して適宜修正してください。
 ```yml
 name: Deploy Hugo site to GitHub Pages
@@ -205,20 +206,20 @@ GitHubリポジトリのActionsタブを見ると成否が伺えます。
 
 ここまでで、`shindys-note`の環境は整いました。あとはObsidianのVault内の更新があれば`shindys-note`へ同期を行う仕組みを構築すれば、GitHub Pagesへの公開設定を実施して完了です。
 
-### 3. Vault内対象フォルダの内容を`master`へ同期する
+## 3. Vault内対象フォルダの内容を`master`へ同期する
 プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内対象フォルダの「docs」や「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
 
-#### 3.1 Personal Access Token (PAT)の作成
+### 3.1 Personal Access Token (PAT)の作成
 リポジトリ間の操作になりますので、以下の手順でリポジトリ操作権限を持ったPATを作成します。
 - GitHub から `Settings > Developer settings > Personal access tokens > Tokens (classic)`
 - scope: `repo` にチェックを入れる
 - トークンをコピーする
-#### 3.2 PATをVaultリポジトリに設定
+### 3.2 PATをVaultリポジトリに設定
 - Vaultリポジトリ → `Settings > Secrets and variables > Actions > New repository secret`
 - 名前：`NOTE_REPO_TOKEN`
 - 値：上でコピーしたPAT
 
-#### 3.3 Vaultリポジトリ内にGitHub Actions用のスクリプトを作成
+### 3.3 Vaultリポジトリ内にGitHub Actions用のスクリプトを作成
 以下の内容を記述した`.github/workflows/sync-to-note.yml`を作成し、pushしてください。
 pushすると、Actionsが動作し、`shindys-note`へ同期が行われます。コメント部分に注意して適宜修正してください。
 ```yml
@@ -262,7 +263,7 @@ jobs:
           git push origin master   # Vaultのメインブランチに合わせる
 ```
 
-### 4. `gh-pages`ブランチをGitHub Pagesで公開する
+## 4. `gh-pages`ブランチをGitHub Pagesで公開する
 最後に構築した公開用環境をGitHub Pagesに公開する設定を行います。
 1. GitHubリポジトリのSettingsタブのPagesを選択
 ![](../assets/Pasted%20image%2020250822010141.png)
