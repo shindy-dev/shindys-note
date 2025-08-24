@@ -117,7 +117,7 @@ pygmentsUseClasses = true
     hiddenInSingle = true
 
   [params.editPost]
-    URL = "https://github.com/shindy-dev/shindys-note/content"
+    URL = "https://github.com/shindy-dev/shindys-note/blob/master/content"
     Text = "Suggest Changes 📝"
     appendFilePath = true
 
