@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Obsidian on Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/tags/obsidian/</link><description>Recent content in Obsidian on Shindy's Note</description><generator>Hugo</generator><language>ja-JP</language><lastBuildDate>Fri, 15 Aug 2025 20:41:20 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/tags/obsidian/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h1 id="obsidianでローカルllmを使う">ObsidianでローカルLLMを使う&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Obsidian on Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/tags/obsidian/</link><description>Recent content in Obsidian on Shindy's Note</description><generator>Hugo</generator><language>ja-JP</language><lastBuildDate>Wed, 20 Aug 2025 22:53:23 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/tags/obsidian/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link><pubDate>Wed, 20 Aug 2025 22:53:23 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid><description>&lt;h1 id="hugoとgithubでobsidianで書いたメモを公開してみた">HugoとGitHubでObsidianで書いたメモを公開してみた&lt;/h1>
+&lt;p>ObsidianのVault内ドキュメントの一部を&lt;a href="https://gohugo.io/">Hugo&lt;/a>という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。&lt;/p>
+&lt;h2 id="使用するもの">使用するもの&lt;/h2>
+&lt;ul>
+&lt;li>MacBook Air M3&lt;/li>
+&lt;li>VS Code &amp;hellip; Hugo環境デバッグ&lt;/li>
+&lt;li>Obsidian &amp;hellip; ドキュメントの更新&lt;/li>
+&lt;li>&lt;a href="https://brew.sh/ja/">Homebrew&lt;/a> &amp;hellip; パッケージマネージャ（Hugoインストール用）&lt;/li>
+&lt;li>Git &amp;hellip; ファイルバージョン管理（&lt;code>brew install git&lt;/code>でインストール可能）&lt;/li>
+&lt;li>GitHubアカウント &amp;hellip; GitHubのサービスをフル活用するので必要&lt;/li>
+&lt;li>（任意）Gitクライアント &amp;hellip; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの&lt;/li>
+&lt;/ul>
+&lt;h2 id="obsidianのvault構成と命題">ObsidianのVault構成と命題&lt;/h2>
+&lt;p>ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>├── .git/ # git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── .obsidian/ # Obsidianの設定
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── diary/ # 日記
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── docs/ # 技術系のドキュメント
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── assets/ # 画像や資料アセット（docs用）
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── LICENSE # リポジトリのライセンスファイル
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── README.md # リポジトリのREADMEファイル
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="今回の方針">今回の方針&lt;/h2>
+&lt;p>Vault内の「docs」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。&lt;/p>
+&lt;ol>
+&lt;li>Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する
+└ Hugo環境をデフォルトブランチに構築する&lt;/li>
+&lt;li>GitHub Pages公開用ブランチ&lt;code>gh-pages&lt;/code>を構築する&lt;/li>
+&lt;li>Vault内対象フォルダの内容を&lt;code>master&lt;/code>へ同期する&lt;/li>
+&lt;li>&lt;code>gh-pages&lt;/code>ブランチをGitHub Pagesで公開する&lt;/li>
+&lt;/ol>
+&lt;h2 id="1-publicリポジトリshindys-noteを作成する">1. Publicリポジトリ&lt;code>shindys-note&lt;/code>を作成する&lt;/h2>
+&lt;h3 id="hugoインストール">Hugoインストール&lt;/h3>
+&lt;p>&lt;a href="https://gohugo.io/installation/macos/">macOS&lt;/a>&lt;/p></description></item><item><title/><link>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h1 id="obsidianでローカルllmを使う">ObsidianでローカルLLMを使う&lt;/h1>
 &lt;p>Obsidianの拡張機能と&lt;a href="https://huggingface.co/">Hugging Face&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、&lt;a href="https://ollama.com/">Ollama&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>を使用してオフライン環境下での生産性の爆上げを図る。&lt;br>
 ※自己責任で実施すること。&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
