@@ -61,13 +61,9 @@
 &lt;td>添付ファイルフォルダのパス&lt;/td>
 &lt;td>&lt;code>assets&lt;/code>&lt;/td>
 &lt;/tr>
-&lt;tr>
-&lt;td>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>なお、GitHub PagesにはPrivateリポジトリの対象ディレクトリのみを公開する機能もありますが、Privateリポジリを公開する場合は有料プランに加入していないと利用できなかったため、断念しました🥲&lt;/p></description></item><item><title>synotesを書いていくためのObsidian環境構築</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link><pubDate>Mon, 21 Jul 2025 22:31:48 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/p></description></item><item><title>synotesを書いていくためのObsidian環境構築</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link><pubDate>Mon, 21 Jul 2025 22:31:48 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>最近Obsidianで日記だったり技術系のドキュメントを執筆していて、今後もこのツールにお世話になりそうなので構築方法をメモとして残します。以降、採用理由等の記載により前置きが長いため、具体的な手順だけ確認したい場合は&lt;a href="#%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86">こちら&lt;/a>へお進みください。&lt;/p>
 &lt;h2 id="obsidianって何">&lt;a href="https://obsidian.md/">Obsidian&lt;/a>って何&lt;/h2>
 &lt;p>ひとこと で言うと、「Markdownベースのノート管理ツール」。そのほかの特徴は以下のとおり。とにかく便利。&lt;/p>

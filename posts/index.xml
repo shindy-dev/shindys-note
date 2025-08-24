@@ -61,13 +61,9 @@
 &lt;td>添付ファイルフォルダのパス&lt;/td>
 &lt;td>&lt;code>assets&lt;/code>&lt;/td>
 &lt;/tr>
-&lt;tr>
-&lt;td>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>なお、GitHub PagesにはPrivateリポジトリの対象ディレクトリのみを公開する機能もありますが、Privateリポジリを公開する場合は有料プランに加入していないと利用できなかったため、断念しました🥲&lt;/p></description></item><item><title>Db2</title><link>https://shindy-dev.github.io/shindys-note/posts/db2/</link><pubDate>Fri, 15 Aug 2025 23:19:55 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/db2/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/p></description></item><item><title>Db2</title><link>https://shindy-dev.github.io/shindys-note/posts/db2/</link><pubDate>Fri, 15 Aug 2025 23:19:55 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/db2/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>IBMのDb2でよく使うコマンドや注意点を記載します。&lt;/p>
 &lt;h2 id="よく使うコマンド">よく使うコマンド&lt;/h2>
 &lt;h3 id="ライセンス確認">ライセンス確認&lt;/h3>

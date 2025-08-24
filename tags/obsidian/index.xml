@@ -61,13 +61,9 @@
 &lt;td>添付ファイルフォルダのパス&lt;/td>
 &lt;td>&lt;code>assets&lt;/code>&lt;/td>
 &lt;/tr>
-&lt;tr>
-&lt;td>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>なお、GitHub PagesにはPrivateリポジトリの対象ディレクトリのみを公開する機能もありますが、Privateリポジリを公開する場合は有料プランに加入していないと利用できなかったため、断念しました🥲&lt;/p></description></item><item><title>ObsidianでローカルLLMを使う</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/p></description></item><item><title>ObsidianでローカルLLMを使う</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>Obsidianの拡張機能と&lt;a href="https://huggingface.co/">Hugging Face&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、&lt;a href="https://ollama.com/">Ollama&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>を使用してオフライン環境下での生産性の爆上げを図る。&lt;br>
 ※自己責任で実施すること。&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
