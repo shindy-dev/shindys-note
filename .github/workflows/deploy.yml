@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master  # mainの場合はここを書き換える
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+      - ".git*"
+      - ".github/FUNDING.yml"
 
 jobs:
   build-deploy:
