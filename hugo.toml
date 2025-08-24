@@ -120,7 +120,10 @@ pygmentsUseClasses = true
     threshold = 0.4
     minMatchCharLength = 0
     limit = 10
-    keys = ["title", "permalink", "summary", "content"]
+    keys = ["title", "permalink", "summary", "content", "tags"]
+
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
 
 [menu]
 
