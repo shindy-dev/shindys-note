@@ -23,6 +23,8 @@ jobs:
           
       - name: Build Hugo site
         run: hugo --minify
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
