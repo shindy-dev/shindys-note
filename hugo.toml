@@ -131,6 +131,10 @@ pygmentsUseClasses = true
     limit = 10
     keys = ["title", "permalink", "summary", "content", "tags"]
 
+  [params.footer]
+    text = "[利用規約](/shindys-note/terms/)"
+    hideCopyright = false
+
 [outputs]
   home = ["HTML", "JSON", "RSS"]
 
