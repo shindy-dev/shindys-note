@@ -22,7 +22,9 @@ jobs:
           extended: true           # SCSS/SASSをビルドするテーマの場合はtrueにしないとエラーになる
           
       - name: Build Hugo site
-        run: hugo --minify
+        run: |
+          sed -i "s/\$GOOGLE_ANALYTICS_ID/${GOOGLE_ANALYTICS_ID}/g" hugo.toml
+          hugo --minify
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
 
