@@ -11,7 +11,7 @@
 他OSとの違いはHugoのインストール方法程度ですので、他OSユーザーも参考になるかと思います。&lt;/li>
 &lt;/ul>
 &lt;h2 id="対応動機">対応動機&lt;/h2>
-&lt;p>ObsidianのVault（記事を管理しているディレクトリ）はGitHubのPrivateリポジトリで管理しています。以下のディレクトリ構造のように、便宜上技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメント（docs/public）のみを公開する方法を模索していました。&lt;/p>
+&lt;p>ObsidianのVault（記事を管理しているディレクトリ）はGitHubのPrivateリポジトリで管理しています。以下のディレクトリ構造のように、便宜上技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメント（&lt;code>docs/public&lt;/code>）のみを公開する方法を模索していました。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
