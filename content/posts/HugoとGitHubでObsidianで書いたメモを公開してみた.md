@@ -1,7 +1,7 @@
 ---
 title: HugoとGitHubでObsidianで書いたメモを公開してみた
 created: 2025-08-20
-date: 2025-08-24T22:53:23
+date: 2025-08-20T22:53:23
 author: shindy
 tags:
   - Hugo
