@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Obsidian on Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/tags/obsidian/</link><description>Recent content in Obsidian on Shindy's Note</description><image><title>Shindy's Note</title><url>https://shindy-dev.github.io/favicon.ico</url><link>https://shindy-dev.github.io/favicon.ico</link></image><generator>Hugo -- 0.148.2</generator><language>ja</language><lastBuildDate>Wed, 20 Aug 2025 22:53:23 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/tags/obsidian/index.xml" rel="self" type="application/rss+xml"/><item><title>HugoとGitHubでObsidianで書いたメモを公開してみた</title><link>https://shindy-dev.github.io/shindys-note/posts/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link><pubDate>Wed, 20 Aug 2025 22:53:23 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
-&lt;p>ObsidianのVault内ドキュメントの一部を&lt;a href="https://gohugo.io/">Hugo&lt;/a>という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。&lt;/p>
-&lt;h2 id="使用するもの">使用するもの&lt;/h2>
+&lt;p>今回はGit管理しているObsidianのVault内ドキュメントの一部を&lt;a href="https://gohugo.io/">Hugo&lt;/a>というSSG（静的サイトジェネレータ）を用いて&lt;a href="https://docs.github.com/ja/pages/quickstart">GitHub Pages&lt;/a>へ無料で自動公開する仕組みを構築してみました🎵
+&lt;img loading="lazy" src="../../assets/Pasted%20image%2020250824202207.png">&lt;/p>
+&lt;h2 id="対象読者">対象読者&lt;/h2>
 &lt;ul>
-&lt;li>MacBook Air M3&lt;/li>
-&lt;li>VS Code &amp;hellip; Hugo環境デバッグ&lt;/li>
-&lt;li>Obsidian &amp;hellip; ドキュメントの更新&lt;/li>
-&lt;li>&lt;a href="https://brew.sh/ja/">Homebrew&lt;/a> &amp;hellip; パッケージマネージャ（Hugoインストール用）&lt;/li>
-&lt;li>Git &amp;hellip; ファイルバージョン管理（&lt;code>brew install git&lt;/code>でインストール可能）&lt;/li>
-&lt;li>GitHubアカウント &amp;hellip; GitHubのサービスをフル活用するので必要&lt;/li>
-&lt;li>（任意）Gitクライアント &amp;hellip; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの&lt;/li>
+&lt;li>Obsidian等でマークダウン記事をGitHubで管理している人向け&lt;/li>
+&lt;li>ブログとして公開したい記事がある人向け&lt;/li>
+&lt;li>無料で公開したい人向け&lt;/li>
+&lt;li>書いた記事を自動で公開できるようにしたい人向け&lt;/li>
+&lt;li>macOSユーザ向け
+他OSとの違いはHugoのインストール方法程度ですので、他OSユーザーも参考になるかと思います。&lt;/li>
 &lt;/ul>
-&lt;h2 id="obsidianのvault構成と命題">ObsidianのVault構成と命題&lt;/h2>
-&lt;p>ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。&lt;/p>
+&lt;h2 id="対応動機">対応動機&lt;/h2>
+&lt;p>ObsidianのVault（記事を管理しているディレクトリ）はGitHubのPrivateリポジトリで管理しています。以下のディレクトリ構造のように、便宜上技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメント（docs/public）のみを公開する方法を模索していました。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -28,7 +28,7 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">├── .git/ # git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── .obsidian/ # Obsidianの設定
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── diary/ # 日記
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── docs/ # 技術系のドキュメント
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── docs/ # 技術系ドキュメント
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └public # 成果物
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └draft # 下書き
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── assets/ # 画像や資料アセット（docs用）
@@ -36,8 +36,38 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── README.md # リポジトリのREADMEファイル
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>ちなみにObsidianの添付ファイルのパスに関する設定は以下のとおりとしています。
-&lt;img loading="lazy" src="../../assets/Pasted%20image%2020250824201710.png">&lt;/p></description></item><item><title>ObsidianでローカルLLMを使う</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;/div>&lt;p>ちなみにObsidianの「ファイルとリンク」の設定は以下のとおりです。ウィキリンクなどObsidian固有の機能はオフにし、画像や資料ファイルは全て&lt;code>assets&lt;/code>フォルダへ集約しています。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>設定項目&lt;/th>
+&lt;th>設定値&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>新規作成するリンクの形式&lt;/td>
+&lt;td>&lt;code>ファイルに対する相対パス&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>[[ウィキリンク]]&lt;/code>を使用&lt;/td>
+&lt;td>&lt;code>OFF&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>新規添付ファイルの作成場所&lt;/td>
+&lt;td>&lt;code>以下で指定されたフォルダ&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>添付ファイルフォルダのパス&lt;/td>
+&lt;td>&lt;code>assets&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>なお、GitHub PagesにはPrivateリポジトリの対象ディレクトリのみを公開する機能もありますが、Privateリポジリを公開する場合は有料プランに加入していないと利用できなかったため、断念しました🥲&lt;/p></description></item><item><title>ObsidianでローカルLLMを使う</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</link><pubDate>Fri, 15 Aug 2025 20:41:20 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E3%81%A7%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABlmm%E3%82%92%E4%BD%BF%E3%81%86/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>Obsidianの拡張機能と&lt;a href="https://huggingface.co/">Hugging Face&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、&lt;a href="https://ollama.com/">Ollama&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>を使用してオフライン環境下での生産性の爆上げを図る。&lt;br>
 ※自己責任で実施すること。&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
