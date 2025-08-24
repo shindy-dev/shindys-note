@@ -6,8 +6,8 @@ author: shindy
 tags:
   - Hugo
   - GitHub
-  - GitHub-Actions
-  - GitHub-Pages
+  - GitHubActions
+  - GitHubPages
   - Obsidian
 draft: "false"
 ---
