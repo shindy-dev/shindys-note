@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/</link><description>Recent content on Shindy's Note</description><image><title>Shindy's Note</title><url>https://shindy-dev.github.io/shindys-note/favicon.ico</url><link>https://shindy-dev.github.io/shindys-note/favicon.ico</link></image><generator>Hugo -- 0.148.2</generator><language>ja</language><lastBuildDate>Fri, 15 Aug 2025 23:19:55 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/index.xml" rel="self" type="application/rss+xml"/><item><title>Db2</title><link>https://shindy-dev.github.io/shindys-note/posts/db2/</link><pubDate>Fri, 15 Aug 2025 23:19:55 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/db2/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Shindy's Note</title><link>https://shindy-dev.github.io/shindys-note/</link><description>Recent content on Shindy's Note</description><image><title>Shindy's Note</title><url>https://shindy-dev.github.io/shindys-note/favicon.ico</url><link>https://shindy-dev.github.io/shindys-note/favicon.ico</link></image><generator>Hugo -- 0.148.2</generator><language>ja</language><lastBuildDate>Wed, 20 Aug 2025 22:53:23 +0000</lastBuildDate><atom:link href="https://shindy-dev.github.io/shindys-note/index.xml" rel="self" type="application/rss+xml"/><item><title>HugoとGitHubでObsidianで書いたメモを公開してみた</title><link>https://shindy-dev.github.io/shindys-note/posts/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link><pubDate>Wed, 20 Aug 2025 22:53:23 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>ObsidianのVault内ドキュメントの一部を&lt;a href="https://gohugo.io/">Hugo&lt;/a>という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。&lt;/p>
+&lt;h2 id="使用するもの">使用するもの&lt;/h2>
+&lt;ul>
+&lt;li>MacBook Air M3&lt;/li>
+&lt;li>VS Code &amp;hellip; Hugo環境デバッグ&lt;/li>
+&lt;li>Obsidian &amp;hellip; ドキュメントの更新&lt;/li>
+&lt;li>&lt;a href="https://brew.sh/ja/">Homebrew&lt;/a> &amp;hellip; パッケージマネージャ（Hugoインストール用）&lt;/li>
+&lt;li>Git &amp;hellip; ファイルバージョン管理（&lt;code>brew install git&lt;/code>でインストール可能）&lt;/li>
+&lt;li>GitHubアカウント &amp;hellip; GitHubのサービスをフル活用するので必要&lt;/li>
+&lt;li>（任意）Gitクライアント &amp;hellip; GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの&lt;/li>
+&lt;/ul>
+&lt;h2 id="obsidianのvault構成と命題">ObsidianのVault構成と命題&lt;/h2>
+&lt;p>ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">├── .git/ # git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── .obsidian/ # Obsidianの設定
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── diary/ # 日記
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── docs/ # 技術系のドキュメント
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └public # 成果物
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └draft # 下書き
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── assets/ # 画像や資料アセット（docs用）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── LICENSE # リポジトリのライセンスファイル
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── README.md # リポジトリのREADMEファイル
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ちなみにObsidianの添付ファイルのパスに関する設定は以下のとおりとしています。
+&lt;img loading="lazy" src="../../assets/Pasted%20image%2020250824201710.png">&lt;/p></description></item><item><title>Db2</title><link>https://shindy-dev.github.io/shindys-note/posts/db2/</link><pubDate>Fri, 15 Aug 2025 23:19:55 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/db2/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>IBMのDb2でよく使うコマンドや注意点を記載します。&lt;/p>
 &lt;h2 id="よく使うコマンド">よく使うコマンド&lt;/h2>
 &lt;h3 id="ライセンス確認">ライセンス確認&lt;/h3>
