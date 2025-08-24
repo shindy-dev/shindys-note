@@ -65,12 +65,20 @@ pygmentsUseClasses = true
     imageTitle = "shindy-icon"
 
     [[params.profileMode.buttons]]
-      name = "Posts"
+      name = "Posts 📜"
       url = "posts"
 
     [[params.profileMode.buttons]]
-      name = "Tags"
+      name = "Archive 📚"
+      url = "archives"
+
+    [[params.profileMode.buttons]]
+      name = "Tags 🏷️"
       url = "tags"
+
+    [[params.profileMode.buttons]]
+      name = "Search 🔍"
+      url = "search"
 
   [params.homeInfoParams]
     Title = "Shindy's Note"
@@ -109,7 +117,7 @@ pygmentsUseClasses = true
 
   [params.editPost]
     URL = "https://github.com/shindy-dev/shindys-note/content"
-    Text = "Suggest Changes（修正の提案）"
+    Text = "Suggest Changes 📝"
     appendFilePath = true
 
   [params.fuseOpts]
@@ -152,5 +160,5 @@ pygmentsUseClasses = true
     # anchorLineNos = true
     # codeFences = true
     # guessSyntax = true
-    # lineNos = true
+    lineNos = true
     # style = "monokai"
