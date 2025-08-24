@@ -32,8 +32,15 @@ Markdownの記法については&lt;a href="Markdown%E8%A8%98%E6%B3%95.md">こ�
 &lt;h3 id="obsidianのインストール">Obsidianのインストール&lt;/h3>
 &lt;p>Obsidianの&lt;a href="https://obsidian.md/">公式サイト&lt;/a>でインストーラを入手してインストールします。&lt;br>
 brewコマンドもからインストールできます。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install --cask obsidian
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="vaultの作成">Vaultの作成&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install --cask obsidian
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="vaultの作成">Vaultの作成&lt;/h3>
 &lt;p>Obsidianを開いて「保管庫を新規作成する」の「作成」を押下します。&lt;/p>
 &lt;p>&lt;img alt="|250" loading="lazy" src="../assets/create_vault1.png">&lt;/p>
 &lt;p>「保管庫の名称」に任意のVault名（リポジトリ名なので英数字）、「ロケーション」にVaultの格納先を指定し、「作成」を押下します。&lt;/p>
@@ -45,10 +52,29 @@ brewコマンドもからインストールできます。&lt;/p>
 他にもObsidian公式でクラウド保存する有料サービスや、iCloudでも保存する機能、&lt;br>
 DropBox等クラウドサービスと同期するプラグインもあるので、この辺は自分の用途や好みに合わせてください。&lt;br>
 brewコマンドもからインストールできます。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="作成したvault内のファイルをgitの追跡対象にする">作成したVault内のファイルをGitの追跡対象にする&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="作成したvault内のファイルをgitの追跡対象にする">作成したVault内のファイルをGitの追跡対象にする&lt;/h3>
 &lt;p>Gitをインストールした以下のコマンドで先ほど作成したVault内のファイルをGitの追跡対象として追加します。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 新規Vaultに移動&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 新規Vaultに移動&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="o">[&lt;/span>Vaultのあるパス&lt;span class="o">]&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># git初期化&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git init .
@@ -56,5 +82,7 @@ brewコマンドもからインストールできます。&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config user.name &lt;span class="o">[&lt;/span>GitHubユーザ名&lt;span class="o">]&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># GitHubメールアドレス登録&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config user.email &lt;span class="o">[&lt;/span>GitHubメールアドレス&lt;span class="o">]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>GitHubのユーザとメールアドレスのデフォルト値を設定する（git initの度に設定するのが面倒な）場合は&lt;br>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>GitHubのユーザとメールアドレスのデフォルト値を設定する（git initの度に設定するのが面倒な）場合は&lt;br>
 &lt;code>--global&lt;/code>オプションを付与してください。&lt;/p></description></item></channel></rss>
