@@ -10,50 +10,75 @@ tags:
   - GitHubPages
   - Obsidian
 draft: "false"
+images:
+  - ../../assets/Pasted%20image%2020250824202207.png
 ---
 ## はじめに
-ObsidianのVault内ドキュメントの一部を[Hugo](https://gohugo.io/)という静的サイトジェネレータを用いてGitHub Pagesで公開してみました。
+今回はGit管理しているObsidianのVault内ドキュメントの一部を[Hugo](https://gohugo.io/)というSSG（静的サイトジェネレータ）を用いて[GitHub Pages](https://docs.github.com/ja/pages/quickstart)へ無料で自動公開する仕組みを構築してみました🎵
+![](../../assets/Pasted%20image%2020250824202207.png)
 
-## 使用するもの
-- MacBook Air M3
-- VS Code ... Hugo環境デバッグ
-- Obsidian ... ドキュメントの更新
-- [Homebrew](https://brew.sh/ja/) ... パッケージマネージャ（Hugoインストール用）
-- Git ... ファイルバージョン管理（`brew install git`でインストール可能）
-- GitHubアカウント ... GitHubのサービスをフル活用するので必要
-- （任意）Gitクライアント ... GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの
+## 対象読者
+- Obsidian等でマークダウン記事をGitHubで管理している人向け
+- ブログとして公開したい記事がある人向け
+- 無料で公開したい人向け
+- 書いた記事を自動で公開できるようにしたい人向け
+- macOSユーザ向け
+  他OSとの違いはHugoのインストール方法程度ですので、他OSユーザーも参考になるかと思います。
 
-## ObsidianのVault構成と命題
-ObsidianのVaultはGitHubのプライベートリポジトリで現在管理しています。私の場合、技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメントのみを公開する方法を模索していました。
+## 対応動機
+ObsidianのVault（記事を管理しているディレクトリ）はGitHubのPrivateリポジトリで管理しています。以下のディレクトリ構造のように、便宜上技術系ドキュメントと日記をひとつのVaultで管理しているので、技術系ドキュメント（docs/public）のみを公開する方法を模索していました。
 ```text
 ├── .git/                  # git
 ├── .obsidian/         # Obsidianの設定
 ├── diary/               # 日記
-├── docs/               # 技術系のドキュメント
+├── docs/               # 技術系ドキュメント
 │      └public             # 成果物
 │      └draft              # 下書き
 ├── assets/             # 画像や資料アセット（docs用）
 ├── LICENSE           # リポジトリのライセンスファイル
 └── README.md     # リポジトリのREADMEファイル
 ```
+ちなみにObsidianの「ファイルとリンク」の設定は以下のとおりです。ウィキリンクなどObsidian固有の機能はオフにし、画像や資料ファイルは全て`assets`フォルダへ集約しています。
 
-ちなみにObsidianの添付ファイルのパスに関する設定は以下のとおりとしています。
-![](../../assets/Pasted%20image%2020250824201710.png)
+| 設定項目            | 設定値            |
+| --------------- | -------------- |
+| 新規作成するリンクの形式    | `ファイルに対する相対パス` |
+| `[[ウィキリンク]]`を使用 | `OFF`          |
+| 新規添付ファイルの作成場所   | `以下で指定されたフォルダ` |
+| 添付ファイルフォルダのパス   | `assets`       |
+SSGにHugoを選んだ理由は好みのテーマがあったからです。GitHub Pagesが公式でサポートしているJekyllを使用した方が公開手順は減ります。
+
+なお、GitHub PagesにはPrivateリポジトリの対象ディレクトリのみを公開する機能もありますが、Privateリポジリを公開する場合は有料プランに加入していないと利用できなかったため、断念しました🥲
+
 
 ## 今回の方針
 Vault内の「docs/public」や「assets」フォルダの内容だけを公開するために、以下の手順を実施します。以降登場するリポジトリ名やブランチ名は任意です。
-1. Publicリポジトリ`shindys-note`を作成する
-   └ Hugo環境をデフォルトブランチに構築する
-2. GitHub Pages公開用ブランチ`gh-pages`を構築する
-3. Vault内対象フォルダの内容を`master`へ同期する
-4. `gh-pages`ブランチをGitHub Pagesで公開する
+```mermaid
+flowchart LR
+    A[Publicリポジトリ shindys-note の作成] --> B[Hugo環境をデフォルトブランチに構築]
+    B --> C[GitHub Pages公開環境を gh-pages ブランチに構築]
+    C --> D[Vault内の対象フォルダを master へ同期]
+    D --> E[gh-pages ブランチを GitHub Pages へ公開]
 
-## 1. Publicリポジトリ`shindys-note`を作成する
+```
+## 使用するもの
+- MacBook Air M3
+- VS Code ... Hugo設定変更＆デバッグ用途
+- Obsidian ... ドキュメントの更新
+- [Homebrew](https://brew.sh/ja/) ... パッケージマネージャ（Hugoインストール用）
+- Git ... ファイルバージョン管理（`brew install git`でインストール可能）
+- GitHubアカウント ... GitHubのサービスをフル活用するので必要
+- （任意）Gitクライアント ... GitHub Desktop、VS Codeの拡張機能、SourceTree等使いやすいもの
+
+## 1. Publicリポジトリ`shindys-note` の作成
 ### Hugoインストール
 [macOS](https://gohugo.io/installation/macos/)
 ```bash
 brew install hugo
 ```
+- Windowsユーザーは[こちら](https://gohugo.io/installation/windows/)
+- Linuxユーザーは[こちら](https://gohugo.io/installation/linux/)
+
 ### Hugo siteの作成 & 空ディレクトリ内に.gitkeepを作成
 任意のディレクトリに移動してから以下コマンドを実行してください。
 ```bash
@@ -99,7 +124,7 @@ node_modules/
 ```
 
 ### サイトの基本情報やテーマ変更やローカルでのテスト方法
-GitHubへpushする前に自分の好きなテーマで記事がちゃんと表示されるかテストしましょう。
+GitHubへpushする前に、自分の好きなテーマで記事が正しく表示されるかテストしましょう。
 
 #### 基本情報（URLや言語、タイトル等）
 hugo.toml内で設定できます。
@@ -121,12 +146,12 @@ git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git theme
 echo 'theme = "ananke"' >> hugo.toml
 ```
 
-`shindys-note`を再度クローンしたときに、submoduleが配置されていない場合はリポジトリ内で以下のコマンドを実行してください。
+`shindys-note`を再度クローンしたときに、サブモジュールが配置されていない場合はリポジトリ内で以下のコマンドを実行してください。
 ```bash
 git submodule update --init --recursive
 ```
 
-またsubmoduleを解除（テーマをアンインストール）する場合は以下のコマンドを実行後、変更をコミットしてください。（hugo.tomlのthemeも削除してください。）
+またサブモジュールを解除（テーマをアンインストール）する場合は以下のコマンドを実行後、変更をコミットしてください。（hugo.tomlのテーマ設定も削除してください。）
 ```bash
 git submodule deinit -f themes/ananke
 git rm -f themes/ananke
@@ -145,7 +170,7 @@ hugo server -D
 - 保存するたびに自動でリロードしてくれます。
 
 
-好みのテーマで作成した記事が表示されたら確認は終わりです。今回は細かなレイアウトの修正は割愛します。
+好みのテーマで作成した記事が表示されたら確認は完了です。今回は細かなレイアウトの修正は割愛します。
 
 ![](../../assets/Pasted%20image%2020250821215604.png)
 
@@ -173,8 +198,8 @@ GitHubのリモートリポジトリの作成方法は多種多様なので、�
 └── README.md
 ```
 
-## 2. GitHub Pages公開環境を`gh-pages`ブランチに構築する
-ここでは、GitHub Actionsを使用して`shindys-note`のデフォルトブランチに更新があった際に、自動でHugoによるビルドを行い成果物をgh-pagesへ反映する仕組みを構築します。手順としては以下の内容を記述した`.github/workflows/deploy.yml`を`shindys-note`のデフォルトブランチで作成し、pushするだけです。コメント部分に注意して適宜修正してください。
+## 2. GitHub Pages公開環境を`gh-pages`ブランチに構築
+ここでは、GitHub Actionsを使用して`shindys-note`のデフォルトブランチに更新があった際に、自動でHugoによるビルドを行い、成果物を`gh-pages`ブランチへ反映する仕組みを構築します。手順としては以下の内容を記述した`.github/workflows/deploy.yml`を`shindys-note`のデフォルトブランチで作成し、pushするだけです。コメント部分に注意して適宜修正してください。
 ```yml
 name: Deploy Hugo site to GitHub Pages
 
@@ -213,10 +238,10 @@ jobs:
 GitHubリポジトリのActionsタブを見ると成否が伺えます。
 ![](../../assets/Pasted%20image%2020250822001228.png)
 
-ここまでで、`shindys-note`の環境は整いました。あとはObsidianのVault内の更新があれば`shindys-note`へ同期を行う仕組みを構築すれば、GitHub Pagesへの公開設定を実施して完了です。
+ここまでで`shindys-note`の環境は整いました。あとはObsidianのVault内の更新があれば`shindys-note`へ同期を行う仕組みを構築し、GitHub Pagesへの公開設定を実施すれば完了です。
 
-## 3. Vault内対象フォルダの内容を`master`へ同期する
-プライベートリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内対象フォルダの「docs/public」や「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
+## 3. Vault内の対象フォルダを`master`へ同期
+Privateリポジトリで管理しているObsidianのVaultの技術系ドキュメント関連ファイルに変更があった場合に、Vault内の対象フォルダ「docs/public」および「assets」の内容を`shindys-note`の`master`ブランチの「content」や「assets」へ同期（置換）する仕組みを構築します。
 
 ### 3.1 Personal Access Token (PAT)の作成
 リポジトリ間の操作になりますので、以下の手順でリポジトリ操作権限を持ったPATを作成します。
@@ -272,7 +297,7 @@ jobs:
           git push origin master   # Vaultのメインブランチに合わせる
 ```
 
-## 4. `gh-pages`ブランチをGitHub Pagesで公開する
+## 4. `gh-pages`ブランチを GitHub Pages へ公開
 最後に構築した公開用環境をGitHub Pagesに公開する設定を行います。
 1. GitHubリポジトリのSettingsタブのPagesを選択
 ![](../../assets/Pasted%20image%2020250822010141.png)
@@ -284,10 +309,10 @@ jobs:
 
 
 ## おまけ（2025年8月24日追記）
-最近は[PaperMod](https://github.com/adityatelange/hugo-PaperMod)というテーマを使っています。見た目はシンプルでスタイリッシュなのが特徴的なテーマです。ざっとみた感じHugoのテーマの中で1番人気ありそうでした👌  
+最近は[PaperMod](https://github.com/adityatelange/hugo-PaperMod)というテーマを使っています。見た目はシンプルでスタイリッシュなのが特徴的なテーマです。ざっと見たところ、Hugoのテーマの中で最も人気があるようでした👌  
 ![](../../assets/Pasted%20image%2020250824202207.png)
 
-基本設定は設定ファイル（`hugo.toml`等）で完結して、割と簡単に使えるので私もおすすめします🥰  
+基本設定は設定ファイル（`hugo.toml`など）で完結し、比較的簡単に利用できるため、私もおすすめします🥰  
 私の設定は以下で公開中です。  
 [shindys-note/hugo.toml at master · shindy-dev/shindys-note](https://github.com/shindy-dev/shindys-note/blob/master/hugo.toml)
 
@@ -297,7 +322,7 @@ jobs:
   [params.analytics.google]
     SiteVerificationTag = "$GOOGLE_ANALYTICS_ID"
 ```
-私の場合はIDを公開したくなかったので以下のように変数っぽく定義して、GitHub Actionsで、GitHub Pagesにデプロイする際にSecretsに登録した値で置換するようにしています。`sed`コマンドが置換制御です。
+私の場合はIDを公開したくなかったので、以下のように変数として定義し、GitHub ActionsでGitHub Pagesにデプロイする際、Secretsに登録した値で置換するようにしています。`sed`コマンドが置換処理を制御しています。
 ```yml
       - name: Build Hugo site
         run: |
