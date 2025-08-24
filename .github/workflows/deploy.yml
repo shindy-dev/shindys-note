@@ -7,7 +7,9 @@ on:
     paths-ignore:
       - "README.md"
       - "LICENSE"
-      - ".git*"
+      - ".gitattributes"
+      - ".gitignore"
+      - ".gitmodules"
       - ".github/FUNDING.yml"
 
 jobs:
