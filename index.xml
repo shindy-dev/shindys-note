@@ -243,7 +243,7 @@ end
 &lt;/code>&lt;/pre>
 &lt;hr>
 &lt;h2 id="hr-水平線">Hr 水平線&lt;/h2>
-&lt;p>アンダースコア&lt;code>_&lt;/code> 、アスタリスク&lt;code>*&lt;/code>、ハイフン&lt;code>-&lt;/code>などを3つ以上連続して記述します。&lt;/p></description></item><item><title>synotesを書いていくためのObsidian環境構築</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link><pubDate>Mon, 21 Jul 2025 22:31:48 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>アンダースコア&lt;code>_&lt;/code> 、アスタリスク&lt;code>*&lt;/code>、ハイフン&lt;code>-&lt;/code>などを3つ以上連続して記述します。&lt;/p></description></item><item><title>Obsidian環境構築</title><link>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link><pubDate>Mon, 21 Jul 2025 22:31:48 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/obsidian%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>最近Obsidianで日記だったり技術系のドキュメントを執筆していて、今後もこのツールにお世話になりそうなので構築方法をメモとして残します。以降、採用理由等の記載により前置きが長いため、具体的な手順だけ確認したい場合は&lt;a href="#%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86">こちら&lt;/a>へお進みください。&lt;/p>
 &lt;h2 id="obsidianって何">&lt;a href="https://obsidian.md/">Obsidian&lt;/a>って何&lt;/h2>
 &lt;p>ひとこと で言うと、「Markdownベースのノート管理ツール」。そのほかの特徴は以下のとおり。とにかく便利。&lt;/p>
