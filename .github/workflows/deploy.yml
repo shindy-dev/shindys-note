@@ -32,6 +32,9 @@ jobs:
         run: |
           # PaperModCustomize の内容を PaperMod に上書きコピー
           rsync -a ./themes/PaperModCustomize/ ./themes/PaperMod/
+          echo "=== PaperMod content ==="
+          ls -R ./themes/PaperMod/
+          
           # Google Analytics ID を設定
           sed -i "s/\$GOOGLE_ANALYTICS_ID/${GOOGLE_ANALYTICS_ID}/g" hugo.toml
           # Hugoのビルドを実行
