@@ -9,7 +9,7 @@ tags:
   - GitHubActions
   - GitHubPages
   - Obsidian
-draft: "false"
+draft: false
 ---
 ## はじめに
 今回はGit管理しているObsidianのVault内ドキュメントの一部を[Hugo](https://gohugo.io/)というSSG（静的サイトジェネレータ）を用いて[GitHub Pages](https://docs.github.com/ja/pages/quickstart)へ無料で自動公開する仕組みを構築してみました🎵

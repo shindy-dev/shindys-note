@@ -6,7 +6,7 @@ author: shindy
 tags:
   - IBM
   - Db2
-draft: "false"
+draft: false
 ---
 ## はじめに
 IBMのDb2でよく使うコマンドや注意点を記載します。

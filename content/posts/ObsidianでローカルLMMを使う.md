@@ -7,7 +7,7 @@ tags:
   - HuggingFace
   - Ollama
   - Obsidian
-draft: "false"
+draft: false
 ---
 ## はじめに
 Obsidianの拡張機能と[Hugging Face](https://huggingface.co/)[^1]、[Ollama](https://ollama.com/)[^2]を使用してオフライン環境下での生産性の爆上げを図る。  

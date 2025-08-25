@@ -5,7 +5,7 @@ date: 2025-07-21T22:32:20
 author: shindy
 tags:
   - Markdown
-draft: "false"
+draft: false
 ---
 ## はじめに
 以下にMarkdownの書き方について記載します。

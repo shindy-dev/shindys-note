@@ -8,7 +8,7 @@ tags:
   - Markdown
   - Git
   - GitHub
-draft: "false"
+draft: false
 ---
 [Obsidian]: https://obsidian.md/
 
