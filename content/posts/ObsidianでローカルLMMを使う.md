@@ -7,6 +7,7 @@ tags:
   - HuggingFace
   - Ollama
   - Obsidian
+  - AI
 draft: false
 ---
 ## はじめに
