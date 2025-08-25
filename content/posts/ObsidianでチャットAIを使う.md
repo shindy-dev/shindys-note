@@ -22,7 +22,7 @@ ObsidianでもVS CodeみたいにAI使いたい！って思ってたらインラ
 ## 設定紹介
 私が使ってる無料のAPIの設定を紹介します。
 
-### Chat用モデル
+### Chatモデル
 Chatモデルには無料の中では高性能で1日250リクエストまで実行可能な`gemini-2.5-flash`、ApplyモデルにはChatモデルが処理結果を反映させるだけなのでそこまで性能は求めなくても良いと思い、`gemini-2.5-flash-lite`を設定しています。System promptはChat開始時にバックグラウンドで事前に指示できる設定になります。私は今のところ多用してないのでリクエスト上限は気になってません。
 ![](../../assets/Pasted%20image%2020250825214920.png)
 
@@ -31,7 +31,7 @@ Geminiのリクエスト上限は以下から確認できます。
 [レート制限  |  Gemini API  |  Google AI for Developers](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja)
 
 
-### RAG
+### RAGモデル
 「Retrieval-Augmented Generation（情報検索強化生成）」の略で、自分の学習データからだけでなく、外部の情報（Vault）も検索して回答してくれるモデルです。Vaultチャット利用時に使います。私の場合は`gemini-embedding-001`を「Add custom model」から追加して設定しています。
 
 ![](../../assets/Pasted%20image%2020250825215039.png)
