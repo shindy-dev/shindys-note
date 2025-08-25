@@ -8,12 +8,12 @@
 &lt;img loading="lazy" src="../../assets/Pasted%20image%2020250825214319.png">&lt;/p>
 &lt;h2 id="設定紹介">設定紹介&lt;/h2>
 &lt;p>私が使ってる無料のAPIの設定を紹介します。&lt;/p>
-&lt;h3 id="chat用モデル">Chat用モデル&lt;/h3>
+&lt;h3 id="chatモデル">Chatモデル&lt;/h3>
 &lt;p>Chatモデルには無料の中では高性能で1日250リクエストまで実行可能な&lt;code>gemini-2.5-flash&lt;/code>、ApplyモデルにはChatモデルが処理結果を反映させるだけなのでそこまで性能は求めなくても良いと思い、&lt;code>gemini-2.5-flash-lite&lt;/code>を設定しています。System promptはChat開始時にバックグラウンドで事前に指示できる設定になります。私は今のところ多用してないのでリクエスト上限は気になってません。
 &lt;img loading="lazy" src="../../assets/Pasted%20image%2020250825214920.png">&lt;/p>
 &lt;p>Geminiのリクエスト上限は以下から確認できます。&lt;/p>
 &lt;p>&lt;a href="https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja">レート制限  |  Gemini API  |  Google AI for Developers&lt;/a>&lt;/p>
-&lt;h3 id="rag">RAG&lt;/h3>
+&lt;h3 id="ragモデル">RAGモデル&lt;/h3>
 &lt;p>「Retrieval-Augmented Generation（情報検索強化生成）」の略で、自分の学習データからだけでなく、外部の情報（Vault）も検索して回答してくれるモデルです。Vaultチャット利用時に使います。私の場合は&lt;code>gemini-embedding-001&lt;/code>を「Add custom model」から追加して設定しています。&lt;/p>
 &lt;p>&lt;img loading="lazy" src="../../assets/Pasted%20image%2020250825215039.png">&lt;/p>
 &lt;p>&lt;em>&lt;strong>So everyone, enjoy life!&lt;/strong>&lt;/em>&lt;/p></description></item><item><title>HugoとGitHubでObsidianで書いたメモを公開してみた</title><link>https://shindy-dev.github.io/shindys-note/posts/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link><pubDate>Wed, 20 Aug 2025 22:53:23 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/posts/hugo%E3%81%A8github%E3%81%A7obsidian%E3%81%A7%E6%9B%B8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
