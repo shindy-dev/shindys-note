@@ -6,7 +6,7 @@ author: shindy
 tags:
   - Obsidian
   - AI
-draft: true
+draft: false
 ---
 # はじめに
 ObsidianでもVS CodeみたいにAI使いたい！って思ってたらインラインチャットはできないけど、チャットできるコミュニティプラグインを見つけたので紹介します。
