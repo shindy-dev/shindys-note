@@ -72,7 +72,7 @@ pygmentsUseClasses = true
 
     [[params.profileMode.buttons]]
       name = "Archive 📚"
-      url = "archives"
+      url = "archive"
 
     [[params.profileMode.buttons]]
       name = "Tags 🏷️"
@@ -149,7 +149,7 @@ pygmentsUseClasses = true
   [[menu.main]]
     identifier = "archive"
     name = "Archive"
-    url = "/Archives/"
+    url = "/archive/"
     weight = 10
 
   [[menu.main]]
