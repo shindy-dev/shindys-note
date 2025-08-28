@@ -348,7 +348,64 @@ brewコマンドもからインストールできます。&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>GitHubのユーザとメールアドレスのデフォルト値を設定する（git initの度に設定するのが面倒な）場合は&lt;br>
-&lt;code>--global&lt;/code>オプションを付与してください。&lt;/p></description></item><item><title>利用規約</title><link>https://shindy-dev.github.io/shindys-note/terms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/terms/</guid><description>&lt;h2 id="1-著作権権利">1. 著作権・権利&lt;/h2>
+&lt;code>--global&lt;/code>オプションを付与してください。&lt;/p></description></item><item><title>特定商取引法に基づく表記</title><link>https://shindy-dev.github.io/shindys-note/bizinfo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/bizinfo/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>項目&lt;/th>
+&lt;th>内容&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>法人名&lt;/td>
+&lt;td>ご請求があったら遅滞なく開示します。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>住所&lt;/td>
+&lt;td>ご請求があった場合には速やかに開示いたします。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>電話番号&lt;/td>
+&lt;td>ご請求があった場合には速やかに開示いたします。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>メールアドレス&lt;/td>
+&lt;td>&lt;a href="mailto:shindy.developer@gmail.com">shindy.developer@gmail.com&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>オペレーション責任者&lt;/td>
+&lt;td>shindy-dev&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>追加手数料&lt;/td>
+&lt;td>なし&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>交換・返品ポリシー&lt;/td>
+&lt;td>＜お客様からの返品・交換＞ 配送前の商品の場合:ウェブサイトのキャンセルボタンを押して注文をキャンセルできます。発送後の商品の場合:未開封の商品については、商品到着後 10 日以内にお客様サポートセンターにご連絡いただいた場合に限り、返金または交換が可能です。開封後の返品や交換は受け付けておりません。＜不良品・サービスの返品・交換＞ お客様サポートセンターにお問い合わせください。弊社が送料を負担して返金するか、新しい製品と交換いたします。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>配達時間&lt;/td>
+&lt;td>注文は 3 ～ 10 営業日以内に処理されます。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>商品は 14 日以内にお受け取りください。ご注文いただいた時点で商品はすぐにご利用いただけます。&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>受け付け可能な決済手段&lt;/td>
+&lt;td>クレジットカードまたは国内の銀行振込&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>決済期間&lt;/td>
+&lt;td>クレジットカード決済の場合はただちに処理されますが、国内の銀行振込の場合は注文から 3 日以内に送金する必要があります。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>価格&lt;/td>
+&lt;td>各商品ページに記載の金額&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>利用規約</title><link>https://shindy-dev.github.io/shindys-note/terms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shindy-dev.github.io/shindys-note/terms/</guid><description>&lt;h2 id="1-著作権権利">1. 著作権・権利&lt;/h2>
 &lt;p>&lt;strong>当ブログのコンテンツについて&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>文章・画像・動画など、当ブログの全てのコンテンツは基本的に著作権で保護されています。&lt;/li>
