@@ -1,7 +1,5 @@
 ---
 title: "利用規約"
-slug: "terms"
-draft: "false"
 hidemeta: true
 showtoc: false
 ---

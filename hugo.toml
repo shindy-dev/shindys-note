@@ -133,7 +133,7 @@ pygmentsUseClasses = true
     keys = ["title", "permalink", "summary", "content", "tags"]
 
   [params.footer]
-    text = "[利用規約](/shindys-note/terms/)"
+    text = "[利用規約](/shindys-note/terms/)・[特定商取引法に基づく表記](/shindys-note/bizinfo/)"
     hideCopyright = false
 
 [outputs]
