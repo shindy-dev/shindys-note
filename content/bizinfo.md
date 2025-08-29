@@ -1,5 +1,5 @@
 ---
-title: "特定商取引法に基づく表記"
+title: "「商取引に関する開示」(特定商取引法に基づく表記)"
 hidemeta: true
 showtoc: false
 ---
